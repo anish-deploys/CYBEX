@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Linux Top</h1>
+                <div class="HTML_btn_container">
+                    <a href="linux_atp_get.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="linux_vim.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+                <h3>Top command in Linux with Examples</h3>
+                <p>Top command is used to show the Linux processes. It provides a dynamic real-time view of the running system. Usually, this command shows the summary information of the system and the list of processes or threads which are currently managed by the Linux Kernel. As soon as you will run this command it will open an interactive command mode where the top half portion will contain the statistics of processes and resource usage. And Lower half contains a list of the currently running processes. Pressing q will simply exit the command mode.</p>
+                <img src="img/top-1.png">
+                <ul>
+                    <li><b>PID:</b> Shows task’s unique process id.</li>
+                    <li><b>PR:</b> The process’s priority. The lower the number, the higher the priority.</li>
+                    <li><b>VIRT:</b> Total virtual memory used by the task.</li>
+                    <li><b>USER:</b> User name of owner of task.</li>
+                    <li><b>%CPU:</b> Represents the CPU usage.</li>
+                    <li><b>TIME+:</b> CPU Time, the same as ‘TIME’, but reflecting more granularity through hundredths of a second.</li>
+                    <li><b>SHR:</b> Represents the Shared Memory size (kb) used by a task.</li>
+                    <li><b>NI:</b> Represents a Nice Value of task. A Negative nice value implies higher priority, and positive Nice value means lower priority.</li>
+                    <li><b>%MEM:</b> Shows the Memory usage of task.</li>
+                    <li><b>RES:</b> How much physical RAM the process is using, measured in kilobytes.</li>
+                    <li><b>COMMAND:</b> The name of the command that started the process.</li>
+                </ul>
+                <p><b>Examples: 1) Exit Top Command After Specific repetition:</b> Top output keep refreshing until you press ‘q‘. With below command top command will automatically exit after 10 number of repetition.</p>
+                <i>top -n 10</i>
+                <p><b>2) Display Specific User Process</p>
+                <i>top -u paras</i>
+                <p><b>3) Highlight Running Process in Top:</b> Press ‘z‘ option in running top command will display running process in color which may help you to identified running process easily </p>
+                <p><b>4) Shows Absolute Path of Processes:</b> Press ‘c‘ option in running top command, it will display absolute path of running pro </p>
+                <p><b>5) Kill running process:</b> You can kill a process after finding PID of process by pressing ‘k‘ option in running top command without exiting from top window as shown below.</p>
+                <p><b> 6) Sort by CPU Utilisation:</b> Press (Shift+P) to sort processes as per CPU utilization.</p>
+                <p><b>7) Shows top command syntax:</b></p>
+                <i>top -h </i>
+                <img src="img/top-5.png" alt="">
+                <p><b>) Batch Mode :</b> Send output from top to file or any other programs.</p>
+                <i>top -b</i>
+                <p><b>9) Secure Mode :</b> Use top in Secure mode.</p>
+                <i>top -s</i>
+                <p><b>10) Command Line :</b> The below command starts top with last closed state.</p>
+                <i>Top -c</i>
+                <p><b>11) Delay time :</b> It tells delay time between screen updates.</p>
+                <i>Top -d seconds.tenths</i>
+            </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+                <p>We are passionate about helping people stay safe online and providing up-to-date information about the ever-evolving cyber security landscape. </p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

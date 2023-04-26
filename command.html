@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux</title>
+    <link rel="icon" type="images/x-icon" href="img/logo-01.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Stylesheet/linux.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav_container">
+            <img src="img/logo.png" alt="">
+            <ul class="nav_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses_page.html">Courses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button id="open-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            <button id="close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </nav>
+
+
+
+    <!-- section body linux tutorial -->
+    <div class="wrapper_body_html">
+        <aside class="wrapper-body_left" id="sidebarNavigationHTMLID">
+            <div class="wrapper-body_left_heading">Linux Tutorial</div>
+            <a href="linux_intro.html" class="horizontal_menu_item_aside" target="displayContent">Linux Introduction</a> 
+            <a href="linux_distro.html" class="horizontal_menu_item_aside" target="displayContent">Linux Distributions</a>
+            <a href="linux_shell.html" class="horizontal_menu_item_aside" target="displayContent">Linux Shell</a>
+            <a href="linux_shell_script.html" class="horizontal_menu_item_aside" target="displayContent">Linux Shell Script</a>
+            <a href="linux_install.html" class="horizontal_menu_item_aside" target="displayContent">Linux Installation</a>
+            <a href="linux_command.html" class="horizontal_menu_item_aside" target="displayContent">Linux Commands</a>
+            <a href="linux_sudo.html" class="horizontal_menu_item_aside" target="displayContent">Linux Sudo</a>
+            <a href="linux_atp_get.html" class="horizontal_menu_item_aside" target="displayContent">Linux Apt-get</a>
+            <a href="linux_top.html" class="horizontal_menu_item_aside" target="displayContent">Linux Top</a>
+            <a href="linux_vim.html" class="horizontal_menu_item_aside" target="displayContent">Linux Vim</a>
+        </aside>
+        <section class="wrapper-body_right">
+            <iframe src="linux_command.html" name="displayContent" class="iframe_Content_Display">
+
+            </iframe>
+        </section>
+    </div>
+
+
+
+    <script src="Assets/Script/Home.js"></script>
+    <script>
+        let sidebar = document.getElementById("sidebarNavigationHTMLID")
+        let openSidebarMenu = document.getElementById("openSidebarMenuID")
+        let open = false;
+
+        openSidebarMenu.addEventListener("click",()=>{
+            open = !open
+            if(open){
+              sidebar.classList.add("sidebarDisplay")
+            }
+            else{
+                sidebar.classList.remove("sidebarDisplay")
+            }
+        })
+    </script>
+
+
+    <script src="./index.js"></script>
+</body>
+</html>

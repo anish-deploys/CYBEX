@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Installing Nessus</h1>
+                <div class="HTML_btn_container">
+                    <a href="va_nessus.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+            <h3>Installing nessus</h3>
+            <p>Download the Nessus source distribution from web site https://www.nessus.org under the topic Download and follow the instructions below. There are three ways for installation. Select either way and follow.</p>
+            <ul>
+                <li>Install Nessus via Internet using the program Lynx. (Lynx is a web browser program which can be downloaded from https://lynx.browser.org.) Use the following command to install:
+                    <i>
+                        <p>#lynx -source</p>
+                        <p>https://install.nessus.org</p>
+                        <p>| sh</p>
+                    </i>
+                </li>
+                <li>Install Nessus using the script called nessus-installer.sh which is located under the directory nessus-installer/. Use the following command:
+                    <i>#sh nessus-installer.sh</i>
+                </li>
+                <li>Download the compilation software package consisting of:</li>
+                </ul>
+                    <i>
+                        <p>nessus-libraries-x.x.tar.gz</p>
+                        <p>libnasl-x.x.tar.gz</p>
+                        <p>nessus-core.x.x.tar.gz</p>
+                        <p>nessus-plugins.x.x.tar.gz(x represents the version of the software at the time.)</p>
+                    </i>
+                    <p>Untar and unzip all the files above using the command.</p>
+                    <i>
+                        <p>#tar xvfz nessus-libraries-x.x.tar.gz</p>
+                        <p>#tar xvfz libnasl-x.x.tar.gz</p>
+                        <p>#tar xvfz nessus-core.x.x.tar.gz</p>
+                        <p>#tar xvfz nessus-plugins.x.x.tar.gz</p>
+                    </i>
+                <p>Compile each file starting from nessus-libraries as follows:</p>
+                <i>
+                    <p>#cd nessus-libraries</p>
+                    <p>#./configure</p>
+                    <p>#make</p>
+                    <p>#make install</p>
+                </i>
+                <p>(For the last command, make install, you must be root to do so.) </p>
+                <p>Compile libnasl:</p>
+                <i>
+                    <p>#cd libnasl</p>
+                    <p>#./configure</p>
+                    <p>#make</p>
+                    <p>#make install</p>
+                </i>
+                <p>(For the last command, make install, you must be root to do so.)</p>
+                <p>Compile nessus-core:</p>
+                <i>
+                    <p>#cd nessus-core</p>
+                    <p>#./configure</p>
+                    <p>#make</p>
+                    <p>#make install</p>
+                </i>
+                <p>(For the last command, make install, you must be root to do so.)</p>
+                <p>Compile nessus-plugins:</p>
+                <i>
+                    <p>#cd nessus-plugins</p>
+                    <p>#./configure</p>
+                    <p>#make</p>
+                    <p>#make install</p>
+                </i>
+                <p>After all compilation has been done, there are two important files created, i.e., nessusd which is Nessus' server and nessus which is its client.</p>
+                <p>In case of using Linux, add path /usr/local/lib to the file /etc/ld.so.conf to incorporate Nessus' library (as compiled above) so that Nessus when started will be able to find its library. Use the following command to update the new path.</p>
+                <i>
+                    <p>#echo "/usr/local/lib" >> /etc/ld.so.conf</p>
+                    <p>#ldconfig</p>
+                </i>
+                <p>To use Nessus, there are two things one has to do. The first is to create a new user account, together with specifying his/her access privilege. The second is configuring Nessus' client.</p>
+                <h4>1. New user account creation and access privilege</h4>
+                <p>Use the script nessus-adduser located in /usr/local/sbin to generate a new account for a user. The user will login to use Nessus via this account.</p>
+                <p>In Figure 1, specify a new user name, in which case joey is the user name as shown in Figure 2.</p>
+                <img src="img/nessua-1.jpg">
+                <p>In Figure 2, select the method to keep the password (joey's password) on the server. Select plaintext if the password is to be kept as it is. Select cipher if the password is to be kept encrypted.</p>
+                <p>Let us call account joey 'login-name' in Nessus and call account root on Linux 'user-name'. This is just to make calling the two names different.</p>
+                <img src="img/nessua-2.jpg">
+                <p>In Figure 3, the system administrator can assign a privilege to allow which part of network joey can connect or can login to. For example, the administrator can assign only the IP address which is joey's machine or a subnet like 192.168.1.0/24. In the figure, the default value is anywhere which means joey can connect from anywhere.</p>
+                <img src="img/nessua-3.jpg">
+                <p>Figure 4 shows assigning the password for account joey. This password is requested by the server but is asked only once. That is, the first time joey logins to use Nessus and the next time onwards the server will no longer ask for this password. Therefore, this is the reason why we call this password one-time password.</p>
+                <p>In logging in to use Nessus, it is necessary to supply a passphrase which is another, not the one-time password. After the passphrase supplied, if this is the first time login, Nessus will ask the user to provide his/her one-time password. If not, Nessus will just let the user pass as long as the passphrase is correct.</p>
+                <img src="img/nessua-4.jpg">
+                <p>Figure 5 is specifying the network scan privilege allowed to joey. That is, which part of network can joey scan? For example, we may allow joey to scan only an IP address or a subnet. When done, press Ctrl-D to finish the process. If the privilege is not specified, joey is then allowed to scan everywhere in the network. See more details about the privilege specification in the manual pages nessus-adduser.</p>
+                <img src="img/nessua-5.jpg">
+                <p>In Figure 6, Nessus will ask for confirmation for correctness of all the data items given above.</p>
+                <img src="img/nessua-6.jpg">
+                <p>If y (yes), the new user joey is added to the system and the screen will show 'user-added' message which means the process has been completed as shown in Figure 7.</p>
+                <p>nessusd has the configuration file /usr/local/etc/nessusd.conf for the system administrator to fine-tune the server via this file. We can use the command nessusd –s in Figure 8 to show up all configuration values on screen.</p>
+                <img src="img/nessua-7.jpg">
+                <p>After checking all the values already, we are now ready to start nessusd. To do so, we must login on Linux as root. The command to start the server is shown in Figure 9.</p>
+                <img src="img/nessua-8.jpg">
+                <p>To check if the server is running, use the command like in Figure 10.</p>
+                <img src="img/nessua-9.jpg">
+                <h4>2. Nessus client configuration</h4>
+                <p>The client program client nessus is located in /usr/local/bin/nessus. Use the follwing command to start the client.</p>
+                <img src="img/nessua-10.jpg">
+                <p>The symbol & in the figure is starting the program in background mode. Note that the user who starts the client program uses 'user-name' snort on Linux.</p>
+                <img src="img/nessua-11.jpg">
+                <p>In Figure 12, when a user starts the nessus client program the first time, Nessus creates a private key for the user according to 'user-name' on Linux, snort in this case. That is, one 'user-name' on Linux matches one unique private key, which is one-to-one relationship.</p>
+                <p>Having created the private key already, Nessus will ask the user to enter a passphrase for the key just created. The user must keep it secret. The second line in the figure is confirmation for the passphrase.</p>
+                <img src="img/nessua-12.jpg">
+                <p>This is the login window. Before logging in to use Nessus with an account (joey in the figure), the user needs to supply the IP address where nessusd is running, nessusd's port, and encryption method used in communicating between a client and the server. In the figure, nessusd server is running at address 192.168.176.210 at port 1241 (which is Nessus' default port) and twofish/ripemd160:3 as the encryption method.</p>
+                <p>Note that 'login-name' in Nessus is Fig 13 is joey whereas 'user-name' on Linux is snort. If this is the first time joey logs in to use Nessus, the server will ask joey to supply his/her one-time password (as given in Figure 4). With the correct password, the server will bind 'login-name' joey with the private key of 'user-name' snort on Linux. This means 'login-name' joey won't be able to login to use Nessus under other 'user-name's, except 'user-name' snort.</p>
+                <p>For subsequent logins of joey (not the first time login) to use Nessus, the server will ask for his/her passphrase (for the private key) only but will no longer ask for his/her one-time password.</p>
+                <p>However, one 'user-name' on Linux can have many 'login-name's in Nessus, e.g., apart from joey for 'user-name' snort, there can be other 'login-name's for snort whose network scan privileges can be different.</p>
+                <img src="img/nessua-13.jpg">
+                <p>In Figure 14, after entering joey as 'login-name', the server will ask joey for his/her one-time password (which was selected at the time 'login-name' joey was created by nessus-adduser).</p>
+                <img src="img/nessua-14.jpg">
+                <p>After login, Nessus will start at the plugin selection window. The user can select the plugins that s/he wants by enabling or disabling the little squares on the right hand side. The lower window shows various choices of a plugin that the user can enable or disable. In the figure, the user is on the FTP plugin where s/he can further select various FTP vulnerabilities to scan for.</p>
+                <img src="img/nessua-15.jpg">
+                <p>In Figure 15, when the user clicks on the vulnerability Anonymous FTP Enabled in the lower window, the system shows additional details for this vulnerability, which describes that if the organisation doesn't need to share information with others, then turn off the anonymous FTP.</p>
+                <img src="img/nessua-17.jpg">
+                <p>In this window, the user can configure additional options for the plugins selected. For example, in pinging machines in a network, the user can ping using the TCP or ICMP protocol.</p>
+                <img src="img/nessua-16.jpg">
+                <p>In this window, the user can specify the scan details, e.g., ports to scan (in the figure from port 1-15,000), the number of simultaneous scans (8 scans in the figure), the location for CGI scripts. Typically port scanning in Nessus is done through another program called nmap.</p>
+                <img src="img/nessua-18.jpg">
+                <p>In this window, the user can select a target machine or a subnet to scan for vulnerabilities. In the figure a subnet 192.168.176.0/24 is to be scanned. Use a comma ',' to separate between targets to scan. The user can also check if a machine with DNS can be zone-transferred by selecting a button 'Perform a DNS zone transfer'. (For security reasons, zone information is allowed to transfer only by the machine with access privilege.)</p>
+                <img src="img/nessua-19.jpg">
+                <p>The user can change his/her passphrase to get in Nessus or even remove the private key and also specify additional network scan privileges using the Add-rule button.</p>
+                <img src="img/nessua-20.jpg">
+                <p>This window shows all the Nessus developers, the current version, and its web site to find more information about Nessus.</p>
+                <img src="img/nessua-21.jpg">
+                <img src="img/nessua-22.jpg">
+                <p>After checking all the windows' setting, the user can now start scanning the target network as specified in the target selection window by clicking the button 'Start the scan' at the bottom of the window.</p>
+                <p>Figure 22.1 shows the status of scanning a subnet whereas Figure 22.2 shows scanning a single machine. At any time, the user can stop scanning an individual machine if desired by clicking 'Stop' to the right hand side or even stop all the scans completely by clicking 'Stop the whole test'.</p>
+                <img src="img/nessua-23.jpg">
+                <p>This figure shows the result of scanning the machine 192.168.176.130. The left window shows security alerts about the vulnerabilities found. For the right window, when clicking on each little circle, the user will get more details about the vulnerability.</p>
+                <img src="img/nessua-24.jpg">
+                <p>Figure 24 displays the result of scanning the machine 192.168.176.130 on Web. After scanning a machine, Nessus produces a file index.html which can be displayed on Web, just like the one for the machine 192.168.176.130. The piechart shows in percent the four categories of security risks, Low, Medium, High, and Serious. This shows the level of security problems found in the network which potentially leads to seeking ways to cure these problems.</p>
+           </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Web Application Firewall</h1>
+                <div class="HTML_btn_container">
+                    <a href="net_firewall_zone.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="net_ids.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+                <h3>What is a Web Application Firewall?</h3>
+                <p>Web Application Firewall protects the web application by filtering, monitoring, and blocking any malicious HTTP/S traffic that might penetrate the web application. In simple words, a Web Application Firewall acts as a shield between a web application and the Internet. This shield protects the web application from different types of attacks.</p>
+                <h3>Working of Web Application Firewall</h3>
+                <ul>
+                    <li>According to the OSI model, WAF is a protocol layer seven defense.</li>
+                    <li>When a WAF is deployed in front of a web application, a shield is created between the web application and the Internet.</li>
+                    <li>The advantage of WAF is that it functions independently from the application, but yet it can constantly adapt to the application behavior changes.</li>
+                    <li>The clients are passed through the WAF before reaching the server in order to protect the server from exposure.</li>
+                    <li>WAF can be set to various levels of examinations, usually in a range from low to high, which allows the WAF to provide a better level of security.</li>
+                </ul>
+                <h3>Types of Web Application Firewall:</h3>
+                <ul>
+                    <li><b>Network-based WAFs</b>are usually hardware-based. They provide latency reduction due to local installation. Network-based WAFs are the most expensive and also require the storage and maintenance of physical equipment.</li>
+                    <li><b>Host-based WAFs</b>may be completely integrated into an application’s software. They exist as modules for a web server. It is a cheaper solution compared to hardware-based WAFs, which are used for small web applications. The disadvantage of a host-based WAF is the consumption of local server resources because of which the performance may degrade.</li>
+                    <li><b>Cloud-based WAFs</b> are low-cost and have fewer resources to manage. The cloud-based solution is the perfect choice when a person doesn’t want to restrict themselves with performance capabilities. The service providers can provide with unlimited hardware pool but after a certain point of time, the service fees might increase.</li>
+                </ul>
+                <h3>Importance of Web Application Firewall:</h3>
+                <p>There are several hackers out there who are ready to execute their malicious attacks. The most common attacks such as XSS, SQL Injection, etc. can be prevented with the help of WAF and that will be discussed further. The purpose of WAF is to protect your webpage from such malicious attacks. The WAF constantly monitors for potential attacks, blocking these attacks if they are found to be malicious in any way.</p>
+                <h3>Policy in Web Application Firewall:</h3>
+                <ul>
+                    <li>The set of rules through which a WAF operates is called a policy.</li>
+                    <li>The purpose of these policies is to protect against the vulnerabilities in the application by filtering out malicious traffic.</li>
+                    <li>The value of a WAF comes in part depending upon the speed and efficiency with which the policy modification is implemented.</li>
+                </ul>
+                <h3>Types of Attacks a Web Application Firewall Can Prevent:</h3>
+                <ul>
+                    <li>DDOS Attack aims to target a particular web application/ website/ server with fake traffic.</li>
+                    <li>Cross-Site Scripting (XSS) Attacks are aimed at those users who use vulnerable web applications/ websites in order to gain access to and control their browsers.</li>
+                    <li>SQL Injection Attacks: A malicious SQL code is injected in the form of requests or queries in the user input box on the web applications that the user is using.</li>
+                    <li>Man-in-the-middle attacks take place when the perpetrators position themselves in between the application and the legitimate users in order to extract confidential details.</li>
+                    <li>Zero-day attacks are unexpected attacks that take place. The organization knows about the existence of vulnerabilities in the hardware/ software only when the attack has taken place.</li>
+                </ul>
+                <h3> Blocklist and Allowlist in Web Application Firewalls:</h3>
+                <p>Blocklist: A WAF that is based on a blocklist protects against known attacks. Visualize blocklist WAF as a college security guard who is instructed to deny admittance to the students who don’t bring their ID-Cards.</p>
+                <p>Allowlist: A WAF based on an allow list only admits traffic that has been pre-approved. This is like the college security guard who only admits people who are on the list.</p>
+                <p>Both Blocklist and Allowlist have equal advantages and disadvantages because of which many WAFs offer a hybrid security model, which implements both.</p>
+                <h3>Advantages:</h3>
+                <ul>
+                    <li>Low-cost for cloud-based WAF solution.</li>
+                    <li>Prevent attacks which include SQL injections, cross-site scripting (XSS) attacks, etc.</li>
+                    <li>It prevents cookie poisoning. Cookie poisoning is the manipulation of cookies in order to keep track of users’ information.</li>
+                    <li>Prevents data from being compromised.</li>
+                </ul>
+                <h3>Disadvantages:</h3>
+                <ul>
+                    <li>If the software has vulnerabilities, then there are chances that some attacks might bypass them.</li>
+                    <li>Sometimes the complete solution comes at an expensive cost.</li>
+                    <li>A lot of resources are consumed.</li>
+                    <li>There is a lack of cloud support because WAFs are majorly deployed as hardware on-premise.</li>
+               </ul>
+            </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

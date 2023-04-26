@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Application Level Attacks</h1>
+                <div class="HTML_btn_container">
+                    <a href="soc_host_header.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="soc_ioc.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+            <h3>Introduction to Application layer attacks</h3>
+            <p>Web-based application development is becoming popular. Everything we need in our daily life is available on the Web, including Google Docs, email, calculators, storage, weather, maps, as well as news. Since practically all mobile applications connect to the cloud, which stores our photos, usernames and passwords, and confidential information, mobile phones are useless without the Internet. Even our home appliances are now connected to the Internet, because of Internet of Things platforms like Wink, which allow users to dim their lights from their phones. In this topic, we are going to learn about Application layer attacks.</p>
+            <h4>Attacks of Application layer</h4>
+            <p>The application layer is the most difficult to secure. The vulnerabilities detected here frequently rely on complex user input inputs that are difficult to define with an intrusion detection signature. This layer is also the most exposed to the outside world and the most accessible. The application must be available on Port 80 (HTTP) or Port 443 (HTTPS).</p>
+            <p>SQL injections, a form of application attack, caused 8.1 percent of all data breaches in 2014. After malware and distributed denial-of-service attempts, it’s the third most common sort of attack. Other frequent application vulnerabilities, like security misconfiguration, employing components with known vulnerabilities, and cross-site scripting, are also included on the list. Without being noticed by network defense measures, attackers were able to modify application input and collect confidential data.</p>
+            <p>The majority of vulnerabilities uncovered in the proprietary code of Web applications are considered zero-day vulnerabilities since they are unknown to security defensive systems. This is due to the fact that these flaws are unique to each application and have never been discovered previously. Without being discovered, an experienced attacker can quickly find these weaknesses and exploit them.</p>
+            <p>Developing secure applications is the best defense against these cyberattacks. Developers must understand how application assaults work and incorporate software defenses into their programs.</p>
+            <p>The Open Web Application Security Project’s purpose is to educate and inform developers about application vulnerabilities (OWASP). The group has compiled a list of the top ten most prevalent application vulnerabilities.</p>
+            <p>Here are some examples of attacks on the application level which are given as follows.</p>
+            <h4>1. Unvalidated Forwards and Redirects</h4>
+            <p>This type of vulnerability is commonly utilized in phishing attacks, where the user is misled into visiting a malicious website. Attackers can redirect users to an undesired place by changing the URLs of a trusted website.</p>
+            <h4>2. Usage of Components With Known Vulnerabilities</h4>
+            <p>This type is for third-party components that haven’t been patched. Attackers can exploit old third-party elements since their flaws have been publicly disclosed, and tools often make it simple for attackers to exploit them. An attack can be carried out by any script kiddie.</p>
+            <h4>3. Cross-Site Request Forgery</h4>
+            <p>This form of attack is often implemented in combination with social engineering. It enables attackers to trick users into take up actions they are unaware of.</p>
+            <h4>4. Missing Function Level Access Control</h4>
+            <p>This type of attack includes cases when the highest privilege operation is hidden from a lesser or unauthorized user instead of being enforced by access controls.</p>
+            <h4>5. Sensitive Data Exposure</h4>
+            <p>This category is for data that isn’t encrypted in transit or not moving. Attackers can steal or modify sensitive data, like payment cards or login credentials, from Web applications and use it to commit identity theft, credit card fraud, or other crimes.</p>
+            <h4>6. Security Misconfiguration</h4>
+            <p>It’s the most popular vulnerability on the list, and it’s usually caused by default settings or overly verbose error messages. For example, an application may display overly descriptive errors to a user, which may indicate program weaknesses. This can be avoided by deleting any unnecessary code features and ensuring that error messages are more flexible.</p>
+            <h4>7. Insecure Deserialization</h4>
+            <p>It occurs when data from untrusted sources is deserialized, and it can result in catastrophic effects such as DDoS attacks and remote code execution attacks. While actions such as monitoring deserialization and applying type checks can be done to try to identify attackers, the only sure approach to protect against insecure deserialization attacks is to prevent data from being deserialized from untrusted sources.</p>
+            <h4>8. Cross-Site Script (XSS)</h4>
+            <p>When web applications allow users to insert custom code into a url path or even on a website that will be viewable by other users, cross-site scripting attacks happen. This defect can be used to inject malicious JavaScript code into a victim’s browser. An attacker could, for example, send a victim an email that appears to be from a reputable bank and includes a link to the bank’s website.</p>
+            <p>Preventing untrusted HTTP requests, as well as verifying and/or filtering user-generated content, are all prevention techniques for cross-site scripting. Cross-site scripting security is also built-in to modern web development frameworks such as ReactJS and Ruby on Rails.</p>
+            <h4>9. Broken Authentication and Session Managementing (XSS)</h4>
+            <p>Attackers can get access to user accounts and potentially compromise a whole system by exploiting vulnerabilities in authentication (login) systems. An attacker may, for example, take a list of thousands of known username/password combinations obtained after a data breach and use a script to test all of them on a login system to see if any of them work.</p>
+            <p>Using two-factor authentication (2FA) and rate limitation to limit or postpone repetitive login attempts are two ways for mitigating authentication issues.</p>
+            <h4>10. Injection</h4>
+            <p>When untrusted data is supplied to a code interpreter via a form input or other data submission to a web application, an injection attack occurs. An attacker could, for example, put SQL database code into a form that requires a plaintext username. If the form input is not sufficiently secured, the SQL code will be run. This is also called an SQL injection attack.</p>
+            <p>Validating and/or filtering user-submitted data can help avoid injection attacks. (Sanitization refers to cleaning up suspicious-looking elements of the data, whereas validation refers to rejecting suspicious-looking data.) A database administrator can also establish controls to limit the amount of data that an injection attack can disclose.</p>
+        </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+                <p>We are passionate about helping people stay safe online and providing up-to-date information about the ever-evolving cyber security landscape. </p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

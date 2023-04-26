@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Installing Wazuh</h1>
+                <div class="HTML_btn_container">
+                    <a href="siem_wazuh.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+            <div class="main_content">
+                <h3>Install and Configure Wazuh Manager on Ubuntu 22.04</h3>
+                <p>In this tutorial, you will learn how to install and configure Wazuh Manager on Ubuntu 22.04. According to the<a href="https://documentation.wazuh.com/current/"> documentation</a>, Wazuh is a free and open source platform for threat detection, security monitoring, incident response and regulatory compliance.</p>
+                <h4>Install and Configure Wazuh Manager on Ubuntu 22.04</h4>
+                <p>Wazuh can be used to monitor endpoints, cloud services and containers, and to aggregate and analyze data from external sources. Wazuh provides the following capabilities:</p>
+                <ul>
+                    <li>Security Analytics</li>
+                    <li>Intrusion Detection</li>
+                    <li>Log Data Analysis</li>
+                    <li>File Integrity Monitoring</li>
+                    <li>Vulnerability Detection</li>
+                    <li>Configuration Assessment</li>
+                    <li>Incident Response</li>
+                    <li>Regulatory Compliance</li>
+                    <li>Cloud Security Monitoring</li>
+                    <li>Containers Security</li>
+                </ul>
+                <h4>Install Elastic Stack on Ubuntu 22.04</h4>
+                <p>In order to fully utilize Wazuh manager capabilities and have a nice UI for visualization, Wazuh has to be integrated with Elastic Stack and to be precise, <b>Kibana,</b> for visualization, <b>Elasticsearch,</b> for data storage and search engine, <b>Filebeat</b> for collecting Wazuh manager event data and pushing them to Elasticsearch search engine.</p>
+                <p>Thus, in order to install and configure Wazuh manager on Ubuntu 22.04, you need to begin by setting up Elastic Stack; Kibana, Elasticsearch and Filebeat.</p>
+                <p>According to the Wazuh <a href="https://documentation.wazuh.com/current/upgrade-guide/compatibility-matrix/index.html#components-compatibility">components compatibility matrix page,</a> current stable release versions of Wazuh (v4.2) supports upto ELK 7.14.2 as of this writing.</p>
+                <p>This should therefore guide us on the version of Elastic stack to deploy.</p>
+                <p>To install Elastic Stack components on Ubuntu 22.04, proceed as follows.</p>
+                <ul>
+                    <li>Install Elastic Stack APT repositories on Ubuntu 22.04;</li>
+                </ul>
+                <i>apt install apt-transport-https -y</i>
+                <i>
+                    <p>wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch \</p>
+                    <p>| sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/elastic.gpg</p>
+                </i>
+                <i>
+                    <p>echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" \</p>
+                    <p>> /etc/apt/sources.list.d/elastic-7.x.list</p>
+                </i>
+                <i>apt update</i>
+                <ul>
+                    <li>Install Elasticsearch 7.14.2 on Ubuntu 22.04</li>
+                </ul>
+                <i>apt install elasticsearch=7.14.2</i>
+                <ul>
+                    <li>Configure Elasticsearch</li>
+                </ul>
+                <p>By default, Elasticsearch should just work with the default settings by default. Feel free to check<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html">Important Elasticsearch settings.</a></p>
+                <p>If Elasticsearch will need to be accessed by other external Beats, then you need to set the IP address and define whether to run in a multi node or single node cluster.</p>
+                <ul>
+                    <li>Start and enable Elasticsearch to run on system boot;</li>
+                </ul>
+                <i>systemctl enable --now elasticsearch</i>
+                <p>Confirm the Elasticsearch port is opened;</p>
+                <i>ss -altnp | grep 9200</i>
+                <p>You can check the status;</p>
+                <i>systemctl status elasticsearch</i>
+                <p>You can check the logs if need be. By default, the logs are written to /var/log/elasticsearch/CLUSTER_NAME.log, where CLUSTER_NAME is elasticsearch by default. Thus, the default log file is /var/log/elasticsearch/elasticsearch.log.</p>
+                <ul>
+                    <li>Install Kibana 7.14.2 on Ubuntu 22.04</li>
+                </ul>
+                <i>apt install kibana=7.14.2</i>
+                <ul>
+                    <li>Configure Kibana</li>
+                </ul>
+                <p>To begin with, set the Kibana server IP address to allow external access. Usually, it only listens on loopback interface.</p>
+                <p>For example, my server IP address is 192.168.56.124. Thus, to configure Kibana to listen on this host IP address, run the command below (Be sure to change the address as per your setup environment).</p>
+                <i>sed -i '/server.host:/s/^#//;s/localhost/192.168.56.124/' /etc/kibana/kibana.yml</i>
+                <p>We will the other settings with the default values.</p>
+                <ul>
+                    <li>Start and enable Kibana to run on system boot;</li>
+                </ul>
+                <i>systemctl enable --now kibana</i>
+                <P>Confirm the Kibana port is opened after a short while.</P>
+                <i>ss -altnp | grep 5601</i>
+                <p>If need be, check syslog and /var/log/kibana/kibana.log log files.</p>
+                <p>Open Kibana port on firewall;</p>
+                <p>If using UFW, run;</p>
+                <i>ufw allow 5601/tcp</i>
+                <p>If using iptables;</p>
+                <i>iptables -I INPUT -p tcp --dport 5601 -j ACCEPT</i>
+                <i>iptables-save > /etc/iptables/rules.v4</i>
+                <ul>
+                    <li>Install Filebeat on Ubuntu 22.04</li>
+                </ul>
+                <p>Filebeat is required to forward Wazuh manager alerts and archived events to Elasticsearch. You can install version 7.14.2, currently supported by Wazuh as of this writing, using the command below;</p>
+                <i>apt install filebeat=7.14.2 -y</i>
+                <p>Enable it to run on boot;</p>
+                <i>systemctl enable filebeat</i>
+                <h4>Install Wazuh Manager on Ubuntu 22.04</h4>
+                <p>Next, proceed to install Wazuh server/manager on Ubuntu 22.04</p>
+                <ul>
+                    <li>Install Wazuh APT Repository on Ubuntu 22.04</li>
+                </ul>
+                <i>apt install curl apt-transport-https unzip wget libcap2-bin software-properties-common lsb-release gnupg2</i>
+                <i>curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | gpg --dearmor > /etc/apt/trusted.gpg.d/wazuh.gpg</i>
+                <i>echo "deb https://packages.wazuh.com/4.x/apt stable main" > /etc/apt/sources.list.d/wazuh.list</i>
+                <p>Update the package information:</p>
+                <i>apt update</i>
+                <p>Next, install Wazuh manager on Ubuntu 22.04.</p>
+                <i>apt install wazuh-manager</i>
+                <p>Once the installation is complete, you can start and enable Wazuh-manager to run on system boot;</p>
+                <i>systemctl enable --now wazuh-manager</i>
+                <p>Open Wazuh Manager Port on Firewall. Usually, the Wazuh agents is set to communicate with Wazuh manager via TCP port 1514 by default. Thus, open port 1514/tcp on Wazuh manager.</p>
+                <i>iptables -A INPUT -p tcp --dport 1514 -j ACCEPT</i>
+                <p>Or</p>
+                <i>ufw allow 1514/tcp</i>
+                <p>Also, allow port 1515/tcp for agent registration;</p>
+                <i>iptables -A INPUT -p tcp --dport 1515 -j ACCEPT</i>
+                <i>ufw allow 1515/tcp</i>
+                <h4>Integrate Wazuh Manager with ELK Stack</h4>
+                <ul>
+                    <li>Install Wazuh Manager Kibana App plugin</li>
+                </ul>
+                <p>To install Wazuh manager/server Kibana App, proceed as follows;</p>
+                <i>chown -R kibana: /usr/share/kibana/plugins</i>
+                <p>Ensure the plugin version to install is compatible with currently installed version of ELK stack as well as the Wazuh manager installed.</p>
+                <i>sudo -u kibana /usr/share/kibana/bin/kibana-plugin install \</i>
+                <i>https://packages.wazuh.com/4.x/ui/kibana/wazuh_kibana-4.2.6_7.14.2-1.zip</i>
+                <p>Sample output of the installation;</p>
+                <i>
+                    <p>Attempting to transfer from https://packages.wazuh.com/4.x/ui/kibana/wazuh_kibana-4.2.6_7.14.2-1.zip</p>
+                    <p>Transferring 32500452 bytes....................</p>
+                    <p>Transfer complete</p>
+                    <p>Retrieving metadata from plugin archive</p>
+                    <p>Extracting plugin archive</p>
+                    <p>Extraction complete</p>
+                    <p>Plugin installation complete</p>
+                </i>
+                <p>Create Wazuh Kibana data directory and set the ownership to kibana user.</p>
+                <i>mkdir /usr/share/kibana/data</i>
+                <i>chown -R kibana: /usr/share/kibana/data</i>
+                <p>Restart Kibana;</p>
+                <i>systemctl restart kibana</i>
+                <ul>
+                    <li>Configure Filebeat for Wazuh Manager</li>
+                </ul>
+                <p>Make a backup of the default configuration file and replace it with the following configs.</p>
+                <i>mv /etc/filebeat/filebeat.{yml,stock}</i>
+                <i>
+                    <p>cat > /etc/filebeat/filebeat.yml &lt;&lt; 'EOL'</p>
+                    <p>output.elasticsearch:</p>
+                    <p>  hosts: ["localhost:9200"]</p>
+                    <p>setup.template.json.enabled: true</p>
+                    <p>setup.template.json.path: '/etc/filebeat/wazuh-template.json'</p>
+                    <p>setup.template.json.name: 'wazuh'</p>
+                    <p>setup.ilm.overwrite: true</p>
+                    <p>setup.ilm.enabled: false</p>
+                    <p>filebeat.modules:</p>
+                    <p>  - module: wazuh</p>
+                    <p>    alerts:</p>
+                    <p>      enabled: true</p>
+                    <p>    archives:</p>
+                    <p>      enabled: false</p>
+                    <p>logging.level: info</p>
+                    <p>logging.to_files: true</p>
+                    <p>logging.files:</p>
+                    <p>  path: /var/log/filebeat</p>
+                    <p>  name: filebeat</p>
+                    <p>  keepfiles: 7</p>
+                    <p>  permissions: 0644</p>
+                    <p>EOL</p>
+                </i>
+                <p>Install Filebeat Wazuh Module:</p>
+                <i>
+                    <p>wget -qO- https://packages.wazuh.com/4.x/filebeat/wazuh-filebeat-0.1.tar.gz \</p>
+                    <p>| tar -xz -C /usr/share/filebeat/module/</p>
+                </i>
+                <h5>Download Wazuh alerts Elasticsearch template:</h5>
+                <i>
+                    <p>wget -O /etc/filebeat/wazuh-template.json \</p>
+                    <p>https://raw.githubusercontent.com/wazuh/wazuh/4.2/extensions/elasticsearch/7.x/wazuh-template.json</p>
+                </i>
+                <p>Test Filebeat config;</p>
+                <i>filebeat test config</i>
+                <p>Config OK</p>
+                <p>Test Filebeat Elasticsearch output;</p>
+                <p>filebeat test output</p>
+                <ul>
+                    <li>elasticsearch: http://localhost:9200...</li>
+                    <li>  parse url... OK</li>
+                    <li>  connection...</li>
+                    <li>    parse host... OK</li>
+                    <li>    dns lookup... OK</li>
+                    <li>    addresses: 127.0.0.1</li>
+                    <li>    dial up... OK</li>
+                    <li>  TLS... WARN secure connection disabled</li>
+                    <li>  talk to server... OK</li>
+                    <li>  version: 7.14.2</li>
+                </ul>
+            </div>
+            <h4>Restart Kibana, Elasticsearch, Filebeat ans Wazuh-manager</h4>
+            <p>The configuration is done!</p>
+            <i>systemctl restart elasticsearch kibana filebeat wazuh-manager</i>
+            <p>Checking the status of each service;</p>
+            <i>systemctl status elasticsearch kibana filebeat wazuh-manager</i>
+            <i>
+                <p>● elasticsearch.service - Elasticsearch</p>
+                <p>     Loaded: loaded (/lib/systemd/system/elasticsearch.service; enabled; vendor preset: enabled)</p>
+                <p>     Active: active (running) since Fri 2022-04-29 17:26:54 UTC; 1min 35s ago</p>
+                <p>       Docs: https://www.elastic.co</p>
+                <p>   Main PID: 684 (java)</p>
+                <p>      Tasks: 75 (limit: 4579)</p>
+                <p>     Memory: 2.3G</p>
+                <p>        CPU: 1min 32.471s</p>
+                <p>     CGroup: /system.slice/elasticsearch.service</p>
+                <p>             ├─ 684 /usr/share/elasticsearch/jdk/bin/java -Xshare:auto -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1></p>
+                <p>             └─1094 /usr/share/elasticsearch/modules/x-pack-ml/platform/linux-x86_64/bin/controller</p>
+                <p>Apr 29 17:26:35 jellyfish systemd[1]: Starting Elasticsearch...</p>
+                <p>Apr 29 17:26:54 jellyfish systemd[1]: Started Elasticsearch.</p>
+            </i>
+            <i>
+                <p>● kibana.service - Kibana</p>
+                <p>     Loaded: loaded (/etc/systemd/system/kibana.service; enabled; vendor preset: enabled)</p>
+                <p>     Active: active (running) since Fri 2022-04-29 17:26:35 UTC; 1min 30s ago</p>
+                <p>       Docs: https://www.elastic.co</p>
+                <p>   Main PID: 690 (node)</p>
+                <p>      Tasks: 18 (limit: 4579)</p>
+                <p>     Memory: 409.3M</p>
+                <p>        CPU: 33.858s</p>
+                <p>     CGroup: /system.slice/kibana.service</p>
+                <p>             ├─690 /usr/share/kibana/bin/../node/bin/node /usr/share/kibana/bin/../src/cli/dist --logging.dest=/var/log/kibana/kibana.log --pid.file=/run/kibana/kibana.pid</p>
+                <p>             └─998 /usr/share/kibana/node/bin/node --preserve-symlinks-main --preserve-symlinks /usr/share/kibana/src/cli/dist --logging.dest=/var/log/kibana/kibana.log --&lg;</p>
+                <p>Apr 29 17:26:35 jellyfish systemd[1]: Started Kibana.</p>
+            </i>
+            <i>
+                <p>● filebeat.service - Filebeat sends log files to Logstash or directly to Elasticsearch.</p>
+                <p>     Loaded: loaded (/lib/systemd/system/filebeat.service; enabled; vendor preset: enabled)</p>
+                <p>     Active: active (running) since Fri 2022-04-29 17:26:37 UTC; 1min 20s ago</p>
+                <p>       Docs: https://www.elastic.co/beats/filebeat</p>
+                <p>   Main PID: 976 (filebeat)</p>
+                <p>      Tasks: 8 (limit: 4579)</p>
+                <p>     Memory: 37.6M</p>
+                <p>        CPU: 873ms</p>
+                <p>     CGroup: /system.slice/filebeat.service</p>
+                <p>             └─976 /usr/share/filebeat/bin/filebeat --environment systemd -c /etc/filebeat/filebeat.yml --path.home /usr/share/filebeat --path.config /etc/filebeat --path.></p>
+                <p>Apr 29 17:26:37 jellyfish systemd[1]: Started Filebeat sends log files to Logstash or directly to Elasticsearch..</p>
+            </i>
+            <i>
+                <p>● wazuh-manager.service - Wazuh manager</p>
+                <p>     Loaded: loaded (/lib/systemd/system/wazuh-manager.service; enabled; vendor preset: enabled)</p>
+                <p>     Active: active (running) since Fri 2022-04-29 17:35:48 UTC; 51s ago</p>
+                <p>    Process: 1517 ExecStart=/usr/bin/env /var/ossec/bin/wazuh-control start (code=exited, status=0/SUCCESS)</p>
+                <p>      Tasks: 118 (limit: 4579)</p>
+                <p>     Memory: 478.6M</p>
+                <p>        CPU: 33.061s</p>
+                <p>     CGroup: /system.slice/wazuh-manager.service</p>
+                <p>             ├─1579 /var/ossec/framework/python/bin/python3 /var/ossec/api/scripts/wazuh-apid.py</p>
+                <p>             ├─1621 /var/ossec/bin/wazuh-authd</p>
+                <p>             ├─1640 /var/ossec/bin/wazuh-db</p>
+                <p>             ├─1663 /var/ossec/bin/wazuh-execd</p>
+                <p>             ├─1677 /var/ossec/bin/wazuh-analysisd</p>
+                <p>             ├─1729 /var/ossec/bin/wazuh-syscheckd</p>
+                <p>             ├─1744 /var/ossec/bin/wazuh-remoted</p>
+                <p>             ├─1756 /var/ossec/bin/wazuh-logcollector</p>
+                <p>             ├─1796 /var/ossec/bin/wazuh-monitord</p>
+                <p>             └─1814 /var/ossec/bin/wazuh-modulesd</p>
+                <p>Apr 29 17:35:38 jellyfish env[1517]: Started wazuh-db...</p>
+                <p>Apr 29 17:35:39 jellyfish env[1517]: Started wazuh-execd...</p>
+                <p>Apr 29 17:35:40 jellyfish env[1517]: Started wazuh-analysisd...</p>
+                <p>Apr 29 17:35:41 jellyfish env[1517]: Started wazuh-syscheckd...</p>
+                <p>Apr 29 17:35:42 jellyfish env[1517]: Started wazuh-remoted...</p>
+                <p>Apr 29 17:35:43 jellyfish env[1517]: Started wazuh-logcollector...</p>
+                <p>Apr 29 17:35:44 jellyfish env[1517]: Started wazuh-monitord...</p>
+                <p>Apr 29 17:35:46 jellyfish env[1517]: Started wazuh-modulesd...</p>
+                <p>Apr 29 17:35:48 jellyfish env[1517]: Completed.</p>
+                <p>Apr 29 17:35:48 jellyfish systemd[1]: Started Wazuh manager.</p>
+            </i>
+            <h4>Accessing Kibana Web Interface</h4>
+            <p>You can now access Kibana via the url http://<server-IP-or-hostname>:5601.</p>
+            <p>On the UI, click Explore on my own and under the Kibana menu section, you should be able to see Wazuh App.</p> 
+            <img src="img/install_wazuh-1.webp" class="wazuh">
+            <p>When you click on the APP, you should see such dashboard.</p>
+            <img src="img/install_wazuh-2.webp" class="wazuh">
+            <p>No agents are connected by default. However, there should be some default events already collected from the Wazuh manager.</p>
+            <p>For example head over to Security events > Events;</p>
+            <img src="img/install_wazuh-3.webp" class="wazuh">
+        </div>
+        </main>
+
+    <!-- advertisement -->
+        <aside class="container_advertisement">
+            Advertisement
+        </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+            </div>
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

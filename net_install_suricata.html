@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Linux Introduction</h1>
+                <div class="HTML_btn_container">
+                    <a href="net_suricata.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+            <h3>How To Install Suricata</h3>
+            <h3>Step 1 – Install Suricata IDS / IPS Tool on Debian 11/10</h3>
+            <p>There are multiple ways to get Suricata IDS / IPS Tool installed on your Debian 11/10 machine.</p>
+            <h3>Option 1 – Install Suricata IDS / IPS Tool on Debian 11/10 from APT.</h3>
+            <p>Suricata is available in the default Debian 11/10 repositories but the main problem with this installation is that the available versions are old.</p>
+            <p>Check the available repositories for Suricata on Debian 11/10 and the version available in the repositories</p>
+            <i>
+                <p>$ sudo apt-cache show suricata</p>
+                <p>Package: suricata</p>
+                <p>Version: 1:6.0.1-3</p>
+                <p>Installed-Size: 6466</p>
+                <p>Maintainer: Pierre Chifflier &lt;pollux@debian.org&lg;</p>
+                <p>Architecture: amd64</p>
+                <p>Replaces: libhtp1 (&lt;&lt; 0.5.16), suricata-hyperscan (&lt;&lt; 3.2)</p>
+                <p>Depends: python3 (>= 3.2), python3-simplejson, python3:any, libbpf0 (>= 5.2.6), libc6 (>= 2.29), libcap-ng0 (>= 0.7.9), libevent-2.1-7 (>= 2.1.8-stable), libevent-pthreads-2.1-7 (>= 2.1.8-stable), libgcc-s1 (>= 4.2), libhiredis0.14 (>= 0.14.1), libhtp2 (>= 1:0.5.36-1~), libhyperscan5 (>= 5.4.0), libjansson4 (>= 2.2), libluajit-5.1-2 (>= 2.0.4+dfsg), liblz4-1 (>= 0.0~r127), libmagic1 (>= 5.12), libmaxminddb0 (>= 1.0.2), libnet1 (>= 1.1.5), libnetfilter-log1 (>= 0.0.13), libnetfilter-queue1 (>= 1.0.2), libnfnetlink0, libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.13.4-2~), libpcap0.8 (>= 1.0.0), libpcre3, libyaml-0-2, zlib1g (>= 1:1.1.4), lsb-base (>= 3.0-6)</p>
+                <p>Pre-Depends: dpkg (>= 1.15.7.2), init-system-helpers (>= 1.54~)</p>
+                <p>Recommends: snort-rules-default, suricata-update</p>
+                <p>Suggests: libtcmalloc-minimal4</p>
+            </i>
+            <p>If you choose this method, install Suricata IDS / IPS Tool on Debian 11/10 using the command below.</p>
+            <i>sudo apt install suricata</i>
+            <p>Dependency tree:</p>
+            <i>
+                <p>Reading package lists... Done</p>
+                <p>Building dependency tree... Done</p>
+                <p>Reading state information... Done</p>
+                <p>The following additional packages will be installed:</p>
+                <p>  libevent-core-2.1-7 libevent-pthreads-2.1-7 libhiredis0.14 libhtp2</p>
+                <p>  libhyperscan5 libluajit-5.1-2 libluajit-5.1-common libnet1 libnetfilter-log1</p>
+                <p>  libnetfilter-queue1 oinkmaster python3-simplejson python3-yaml</p>
+                <p>  snort-rules-default suricata-update</p>
+                <p>Suggested packages:</p>
+                <p>  snort | snort-pgsql | snort-mysql libtcmalloc-minimal4</p>
+                <p>The following NEW packages will be installed:</p>
+                <p>  libevent-core-2.1-7 libevent-pthreads-2.1-7 libhiredis0.14 libhtp2</p>
+                <p>  libhyperscan5 libluajit-5.1-2 libluajit-5.1-common libnet1 libnetfilter-log1</p>
+                <p>  libnetfilter-queue1 oinkmaster python3-simplejson python3-yaml</p>
+                <p>  snort-rules-default suricata suricata-update</p>
+                <p>0 upgraded, 16 newly installed, 0 to remove and 19 not upgraded.</p>
+                <p>Need to get 5,836 kB of archives.</p>
+                <p>After this operation, 28.1 MB of additional disk space will be used.</p>
+                <p>Do you want to continue? [Y/n] Y</p>
+            </i>
+            <h3>Option 2 – Install Suricata IDS / IPS Tool on Debian 11/10 from source</h3>
+            <p>With this installation method, you are guaranteed the latest available version of the Suricata IDS / IPS Tool.</p>
+            <p>Update your APT package index.</p>
+            <i>sudo apt update</i>
+            <p>Then proceed and install the required packages to install Suricata IDS / IPS Tool from source.</p>
+            <i>sudo apt-get install libpcre3 libpcre3-dbg libpcre3-dev build-essential libpcap-dev   \
+                libnet1-dev libyaml-0-2 libyaml-dev pkg-config zlib1g zlib1g-dev \
+                libcap-ng-dev libcap-ng0 make libmagic-dev         \
+                libnss3-dev libgeoip-dev liblua5.1-dev libhiredis-dev libevent-dev \
+                python-yaml rustc cargo
+            </i>
+            <p>For IPtables integration install the below packages.</p>
+            <i>sudo apt-get install libnetfilter-queue-dev libnetfilter-queue1  \
+                libnetfilter-log-dev libnetfilter-log1      \
+                libnfnetlink-dev libnfnetlink0
+            </i>
+            <p>The next step is to install the Suricata-update tool used to update Suricata rules. This tool will be installed using PIP.</p>
+            <i>sudo apt-get install python3-pip</i>
+            <p>With PIP installed, proceed and install Suricata-update on Debian 11/10 with the command:</p>
+            <i>sudo pip3 install --upgrade suricata-update</i>
+            <p>Sample Output:</p>
+            <i>Collecting suricata-update
+                <p>https://files.pythonhosted.org/packages/81/eb/051dcb8184831723d6d7d5e4b5f2f2d9b987430a00019cd0a1a5785bd430/suricata-update-1.2.2.tar.gz (69kB)</p>
+                  <p>100% |████████████████████████████████| 71kB 388kB/s </p>
+              <p>Collecting pyyaml (from suricata-update)</p>
+                <p>https://files.pythonhosted.org/packages/eb/5f/6e6fe6904e1a9c67bc2ca5629a69e7a5a0b17f079da838bab98a1e548b25/PyYAML-6.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (596kB)</p>
+                  <p>100% |████████████████████████████████| 604kB 993kB/s </p>
+              <p>Building wheels for collected packages: suricata-update</p>
+                <p>setup.py bdist_wheel for suricata-update ... done</p>
+                <p>Stored in directory: /home/debian/.cache/pip/wheels/a1/d5/49/206350d2b2aeafb3e35a826f3baa8609bed844b3ef53d0e370</p>
+              <p>Successfully built suricata-update</p>
+              <p>Installing collected packages: pyyaml, suricata-update</p>
+              <p>installed pyyaml-6.0 suricata-update-1.2.2</p>
+            </i>
+            <p>Find where Suricata update is installed.</p>
+            <i>
+                <p>$ whereis suricata-update</p>
+                <p>suricata-update: /usr/local/bin/suricata-update</p>
+            </i>
+            <p>Create a symbolic link for the Suricata-update tool.</p>
+            <i>sudo ln -s /usr/local/bin/suricata-update /usr/bin/suricata-update</i>
+        </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

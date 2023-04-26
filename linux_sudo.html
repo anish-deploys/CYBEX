@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Linux Sudo</h1>
+                <div class="HTML_btn_container">
+                    <a href="linux_command.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="linux_atp_get.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+                <h3>Sudo command in Linux with Examples</h3>
+                <p>sudo (Super User DO) command in Linux is generally used as a prefix of some command that only superuser are allowed to run. If you prefix “sudo” with any command, it will run that command with elevated privileges or in other words allow a user with proper permissions to execute a command as another user, such as the superuser. This is the equivalent of “run as administrator” option in Windows. The option of sudo lets us have multiple administrators. 
+                    These users who can use the sudo command need to have an entry in the sudoers file located at “/etc/sudoers”. Remember that to edit or view the sudoers file you have to use sudo command. To edit the sudoers file it is recommended to use “visudo” command. </p>
+                <p>By default, sudo requires that users authenticate themselves with a password which is the user’s password, not the root password itself. </p>
+                <h3>sudoers file: </h3>
+                <img src="img/sudo_command_1.png">
+               <h3>Syntax:</h3>
+                <p>sudo -V | -h | -l | -v | -k | -K | -s | [ -H ] [-P ] [-S ] [ -b ] | </p>
+                <p>[ -p prompt ] [ -c class|- ] [ -a auth_type ] [-r role ] [-t type ] </p>
+                <p>[ -u username|#uid ] commandsudo -V | -h | -l | -L | -v | -k | -K | -s | [</p>
+                <p>-H ] [-P ] [-S ] [ -b ] | </p>
+                <p>[ -p prompt ] [ -c class|- ] [ -a auth_type ] [-r role ] [-t type ] </p>
+                <p>[ -u username|#uid ] command </p>
+                <h3>Options</h3> 
+               <p>1. -V: The -V (version) option causes sudo to print the version number and exit. If the invoking user is already root, the -V option will print out a list of the defaults sudo was compiled with.</p>
+                <img src="img/sudo_command_2.png" alt="">
+                <p>2. -l: The -l (list) option will print out the commands allowed (and forbidden) the user on the current host. </p>
+                <img src="img/sudo_command_3.png">
+                <p>This shows the current user can use all commands as sudo. </p>
+                <p>3. -h or –help: The -h (help) option causes sudo to print a usage message and exit. </p>
+                <img src="img/sudo_command_4.png" alt="">
+                <p>4. -v: If, given the -v (validate) option, sudo will update the user’s timestamp, prompting for the user’s password if necessary. This extends the sudo timeout for another 5 minutes (or as given in sudoers) but does not run a command. This does not give any output. </p>
+                <p>5. -k: The -k (kill) option to sudo invalidates the user’s timestamp.So, the next time sudo is run a password will be required. This option does not require a password and was added to allow a user to revoke sudo permissions from a .logout file. </p>
+                <p>6. -K: Similar to the -k option, the -K (sure kill) option is used to remove the user’s timestamp entirely. Likewise, this option does not require a password. </p>
+                <p>7. -b: The -b (background) option tells sudo to run the given command in the background. Note that if you use the -b option you cannot use shell job control to manipulate the process. </p>
+                <p>8. -p:The -p (prompt) option allows you to override the default password prompt and use a custom one. The following percent (‘%’) escapes are supported: </p>
+                <p>%u is expanded to the invoking user’s login name; </p>
+                <p>%U is expanded to the login name of the user the command will be run as (which defaults to root); </p>
+                <p>%h is expanded to the local hostname without the domain name; </p>
+                <p>%H is expanded to the local hostname including the domain name (only if the machine’s hostname is fully qualified or the “fqdn” sudoers option is set); </p>
+                <p>%% (two consecutive % characters) are collapsed into a single % character. </p>
+                <p>Normally we get this for a sudo command: </p>
+                <img src="img/sudo_command_5.png" alt="">
+                <p>Using sudo -p we get, </p>
+                <img src="img/sudo_command_6.png" alt="">
+                <p>9. -n: Use -n option as shown below, which will execute the command without prompting for the password. This is very helpful when we want to run some of the sudo commands as background jobs (or in a shell script), where we don’t want sudo to ask for the password. -n option stands for non-interactive.  </p>
+                <p>10. -u: The -u (user) option causes sudo to run the specified command as a user other than root. To specify a uid instead of a username, use #uid. </p>
+                <p>11. -s: The -s (shell) option runs the shell specified by the SHELL environment variable if it is set or the shell as specified in the file passwd. </p>
+                <p>12. -H: The -H (HOME) option sets the HOME environment variable to the home directory of the target user (root by default) as specified in passwd. By default, sudo does not modify HOME. </p>
+                <p>13. -S: The -S (stdin) option causes sudo to read the password from standard input instead of the terminal device. </p>
+                <p>14. -a: The -a (authentication type) option causes sudo to use the specified authentication type when validating the user, as allowed by /etc/login.conf. The system administrator may specify a list of sudo-specific authentication methods by adding an “auth-sudo” entry in /etc/login.conf. </p>
+                <p>15. –: The — flag indicates that sudo should stop processing command line arguments. It is most useful in conjunction with the -s flag. </p>
+            </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+                <p>We are passionate about helping people stay safe online and providing up-to-date information about the ever-evolving cyber security landscape. </p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

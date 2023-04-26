@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Linux Installation</h1>
+                <div class="HTML_btn_container">
+                    <a href="linux_shell_script.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="linux_command.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+            <div class="main_content">
+                <p>Dual Booting a Windows Laptop with Kali Linux, Though increases the speed and efficiency of the OS, but we can not switch between Windows and Kali Linux instantly. To do so, we will have to install Kali Linux in Virtual Box. So now, whenever we want to switch between both the operating systems, we will have to just change the active Window from the Virtual box to any other window and vice versa. Also, sometimes we came across situations like when we want to start learning Linux and command line stuff but using Linux as a main Operating System without having a basic idea of it is not a good option and here either dual-booting solves the problem or the virtual machine does the same.</p>
+            <h3>Prerequisites</h3>
+            <ul>
+                <li>20GB free disk space on other OS</li>
+                <li>Kali Linux ISO File which can be downloaded from <a href="https://www.kali.org/get-kali/" target="_blank"> here.</a></li>
+                <li>Virtual Box on the System.</li>
+                <li>Minimum of 5-10 GB free space in your hard disk</li>
+                <li>A minimum of 8 GB RAM is recommended</li>
+            </ul>
+            <h3>Procedure:</h3>
+            <p>1. Open Virtual Box and then press the new button.</p>
+                <img src="img/Ubuntu-VirtualBox-Installation-00 (1).png">
+                    <p>2. Write the name of the virtual machine and select it to Debian based 64bit Linux architecture.</p>
+                <img src="img/VBOXKali.png">
+                    <p>3. Allot the size of RAM memory you want to allocate to the Virtual Machine of Kali Linux. (2048 MB is recommended for normal usage)</p>
+                <img src="img/Ubuntu-VirtualBox-Installation-02.png">
+                    <p>4. Select the option to create a virtual hard disk now and then click on the create button.</p>
+                <img src="img/Ubuntu-VirtualBox-Installation-03.png">
+                    <p>5. Now, Select the Hard Disk File type for Virtual Hard Disk. ( VDI is recommended for daily purposes)</p>
+                <img src="img/Ubuntu-VirtualBox-Installation-04.png">
+                    <p>6. Now select the type of Physical Hard Disk Storage. (Dynamically Allocated is recommended for general purposes)</p>
+                <img src="img/Ubuntu-VirtualBox-Installation-05.png">
+                    <p>7. Select the size of your virtual hard disk and also the location where you want to save your machine and its files.</p>
+                <img src="img/vboxkalihddsize.png">
+                    <p>8. As soon as the processing is completed click on the Virtual machine name on the left panel and click on the start button from the top.</p>
+                <img src="img/vboxstart.png">
+                <p>9. Now click on the Browse icon located just above the cancel button and select your downloaded Kali Linux ISO file and then click on the start button.</p>
+                <img src="img/browseisovbox.png">
+                <p>10. This will boot our virtual machine from the chosen Kali Linux ISO file. Select the Graphical Install button and hit enter.</p>
+                <img src="img/VirtualBoxkali07092020195712.png">
+                <p>11.The next option is to select a language, So select your desired language and hit enter.</p>
+                <img src="img/VirtualBoxkali07092020195846.png">
+                <p>12.The next step is to select a country, territory, or area, So select your respective one.</p>
+                <img src="img/VirtualBoxkali07092020195936.png">
+                <p>13.The next step is to configure your keymap. Confirm the keymap you want to use and click Next.</p>
+                <img src="img/VirtualBoxkali07092020200017.png">
+                <p>14.In the next step it is asking for a hostname, Enter the same and press the continue button.</p>
+                <img src="img/VirtualBoxkali07092020200142.png">
+                <p>15.The next step is to enter the domain name of your choice you may leave it blank if you don’t have any.</p>
+                <img src="img/VirtualBoxkali07092020200222.png">
+                <p>16.Enter a strong password for your Kali Linux OS and click continue.</p>
+                <img src="img/VirtualBoxkali07092020200320.png">
+                <p>17.The next step is to select a time zone of your choice which you want to use as a default time zone for the Kali Linux machine.</p>
+                <p>18.Now click on the “Manual” option and press continue to confirm.</p>
+                <img src="img/VirtualBoxkali07092020200813.png">
+                <p>19.Now select the Free Space and create a new partition with that and click continue. Also, it is recommended for new users to not use a separate partition for root, home, and swap areas.</p>
+                <img src="img/VirtualBoxkali07092020201351.png">
+                <p>20.Now click on create a new partition.</p>
+                <img src="img/VirtualBoxkali07092020201351.png">
+                <p>21.Now enter the partition size to be created.</p>
+                <img src="img/VirtualBoxkali07092020203155.png">
+                <p>22.Now select the partition type as “Logical”.</p>
+                <p>23. Now if you are new to Linux then use the following settings for the partition or you may also adjust them as per your need. And then click on “Done setting up the partition“</p>
+                <img src="img/VirtualBoxkali07092020204233.png">
+                <p>24.Now just click on finish partitioning and write changes to disk.</p>
+        
+                <img src="img/VirtualBoxkali07092020210146.png">
+                <p>25.Now select the “no” option in order to continue.</p>
+                <img src="img/VirtualBoxkali07092020210715.png">
+                <p>26.Now in order to write changes to the disk select the “yes” option and then click on continue.</p>
+            
+                <img src="img/VirtualBoxkali07092020210733.png">  
+                <p>27.Now, wait for a few minutes for the Kali system to be installed into your Virtual Machine.</p>
+                <img src="img/VirtualBoxkali07092020210749.png">
+                <p>28. The next option is to select whether to install the GRUB boot loader to the master boot record or not. Click on yes to add the same.</p>
+                <img src="img/VirtualBoxkali07092020225719.png">
+                <p>28. The next option is to select whether to install the GRUB boot loader to the master boot record or not. Click on yes to add the same.</p>
+                <img src="img/VirtualBoxkali07092020225719.png">
+                <p>29. Choose your respective hard disk to boot into, from the list of devices.</p>
+                <img src="img/VirtualBoxkali07092020225800.png">
+                <p>30. This will start installing the Kali Linux OS and will take a few minutes to completely install the same and will reboot after the successful completion of the installation.</p>
+                <p>31. Once the complete process is finished successfully, It will automatically restart the virtual machine and will boot the Kali Linux OS.</p>
+                <p>32. In order to close the Virtual Machine, Simply Shutdown the Kali Linux OS, this action will automatically terminate the Virtual Machine.</p>
+            </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+                <p>We are passionate about helping people stay safe online and providing up-to-date information about the ever-evolving cyber security landscape. </p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

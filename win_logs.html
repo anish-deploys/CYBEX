@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Log Analysis</h1>
+                <div class="HTML_btn_container">
+                    <a href="win_server_roles.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+            <h3>Windows Logging Basics</h3>
+            <p>Logs are records of events that happen on your computer, either by a person or by a running process. They help you track what happened and troubleshoot problems. </p>
+            <p>The Windows event log contains logs from the operating system and applications such as SQL Server or Internet Information Services (IIS). The logs use a structured data format, making them easy to search and analyze. Some applications also write to log files in text format. For example, IIS Access Logs.</p>
+            <p>This article explores the<b> Event Viewer</b> interface and features, and introduces other major application and services logs. Examples are provided to give you a full grasp of how monitoring events can help you manage your systems for health and security.</p>
+            <h4>Windows Event Logs</h4>
+            <p><b>Windows Event Viewer</b> displays the Windows event logs. Use this application to view and navigate the logs, search and filter particular types of logs, export logs for analysis, and more. We’ll show you how to access Windows Event Viewer and demonstrate available features.</p>
+            <h4>Starting Windows Event Viewer</h4>
+            <p>Windows Server 2019 Event Viewer can be accessed in several ways:</p>
+            <ul>
+                <li>Windows Control Panel</li>
+                <li>Server Manager</li>
+                <li>Windows Admin Center</li>
+                <li>Computer Management</li>
+                <li>Component Services</li>
+                <li>Command Prompt</li>
+            </ul>
+            <h4>Windows Control Panel</h4>
+            <p>Control Panel is the standard Windows component for viewing and changing system settings. It can be found in Windows Server and Windows desktop editions. To access the Event Viewer:</p>
+            <ol>
+                <li>Open <b>Control Panel</b></li>
+                <li>Click <b>Administrative Tools</b></li>
+                <li>Double-click <b>Event Viewer</b></li>
+            </ol>
+            <img src="img/logs-1.png">
+            <h4>Server Manager</h4>
+            <p>The Server Manager console lets you manage settings on the local server and on remote servers. To access Event Viewer from Server Manager:</p>
+            <ol>
+                <li>Open <b>Server Manager</b></li>
+                <li>Open <b>Tools > Event Viewer</b></li>
+            </ol>
+            <img src="img/logs-2.png">
+            <h4>Windows Admin Center</h4>
+            <p>Windows Admin Center is a browser-based application for managing servers, clusters, desktop PCs, and other infrastructure components. To access Event Viewer from the Windows Admin Center:</p>
+            <ol>
+                <li>Open <b>Windows Admin Center</b> in a supported browser.</li>
+                <li>Click <b>Events</b></li>
+            </ol>
+            <img src="img/logs-3.png">
+            <h4>Computer Management</h4>
+            <p>The Computer Management console provides access to administrative tasks on a local or remote server. To open Event Viewer from Computer Management:</p>
+            <ol>
+                <li>Open <b>Computer Management</b></li>
+                <li>Click <b>Event Viewer</b></li>
+            </ol>
+            <img src="img/logs-4.png">
+            <h4>Windows Component Service</h4>
+            <p>Another built-in application is the Windows Component Services Manager that enables us to configure DCOM applications running on Windows. Windows Event Viewer is accessible from Component Services Manager as well:</p>
+            <ol>
+                <li>Open <b>Component Services</b></li>
+                <li>Click <b>Event Viewer</b></li>
+            </ol>
+            <h4>Command Prompt</h4>
+            <p>Lastly, you can open the Event Viewer directly from a command prompt. To do so:</p>
+            <ol>
+                <li>Open a <b>Command Prompt</b></li>
+                <li>Type <b>eventvwr</b></li>
+            </ol>
+            <h4>Using the Windows Event Viewer Interface</h4>
+            <p>Event Viewer has an intuitive user interface. The main screen is divided into three sections:</p>
+            <ol>
+                <li>Navigation pane</li>
+                <li>Detail pane</li>
+                <li>Action pane</li>
+            </ol>
+            <p>You can create Summary and Custom views. We’ll guide you through these options.</p>
+            <h4>Navigation Pane</h4>
+            <p>The Navigation pane is where you choose the event log to view. By default, there are five categories of Windows logs:</p>
+            <ol>
+                <li>Application – Information logged by applications hosted on the local machine.</li>
+                <li>Security – Information related to login attempts (success and failure), elevated privileges, and other audited events.</li>
+                <li>Setup – Messages generated when installing and upgrading the Windows operating system. If the Windows system is a domain controller, those messages are also logged here.</li>
+                <li>System – Messages generated by the Windows operating system.</li>
+                <li>Forwarded Events – Events forwarded by other computers when the local machine is functioning as a central subscriber.</li>                
+            </ol>
+            <p>There is also a section for Applications and Services Logs, including categories for Hardware Events, Internet Explorer and Windows PowerShell events.</p>
+            <h5>Event Viewer Navigation pane:</h5>
+            <img src="img/logs-6.png">
+            <h4>Detail Pane</h4>
+            <p>When Event Viewer is opened, the Detail pane displays the Overview and Summary. We’ll discuss the Summary Views later. Select an item from the Navigation pane to see a list of events.</p>
+            <p>Event entries are listed by default in chronological order, with the latest events at the top. Click on any column header to sort events by that field in ascending or descending order. Clicking a second time in the same column head reverses the sort order. For example, click on Level to sort by severity. A caret ^ symbol or reverse caret indicates the sort field and direction of the sort.</p>
+            <h5>Event Viewer Detail pane showing errors and warnings:</h5>
+            <img src="img/logs-7.png">
+            <p>Click on an event to display the detailed information. In this example, we can see the highlighted event’s source (TerminalServices-Printers) and the date and time it occurred. The General tab shows more information: a printer driver needs to be installed.</p>
+            <h5>Event Viewer Detail pane General tab:</h5>
+            <img src="img/logs-8.png">
+            <p>Open the <b>Details</b> tab to view the raw event data. You can switch between Friendly View and XML View.</p>
+            <img src="img/logs-10.png" >
+            <p>You can right-click on an event and select <b>Copy > Copy Details as Text</b> then paste the results into a text editor. The system fields are listed, followed by the entire event as XML.</p>
+            <p>For this critical error, we can see the system had shut down unexpectedly.</p>
+            <img src="img/logs-11.png">
+            <h4>Actions Pane</h4>
+            <p>The Actions pane provides quick access to actions available for your current selections. The Action pane is divided into two sections:</p>
+            <ul>
+                <li>Actions available for the selected Navigation pane log</li>
+                <li>Actions available for the selected Detail pane event</li>
+            </ul>
+            <p>In this example, we have selected the Application log and <b>Event 9027, Desktop Window Manager:</b></p>
+            <img src="img/logs-12.png">
+            <p>As you can see, there are a number of actions possible when a particular event log is active. For example, click<b> Filter Current Log</b> to search for a particular event or group of events. The pop-up window enables you to specify query criteria. When you click<b> OK</b>, your filtered results are shown in the Details pane.</p>
+            <img src="img/logs-13.png">
+            <h4>Clearing Large Logs</h4>
+            <p>You can do some housekeeping on the selected log with the <b>Clear</b> Log action if it becomes too large. This deletes all events stored in the log. To check the size of your log files, select <b>Windows Logs</b> or <b>Applications and Services Logs</b> from the Navigation pane. The <b>Number of Events</b> and<b> Size</b> are shown in the Detail pane.</p>
+            <img src="img/logs-14.png">
+            <h4>Exporting Events</h4>
+            <p>You can click <b>Save All Events</b> As or <b>Save All Events in Custom View As</b> (selected events) or <b>Save All Events As </b>(all events) to export events from the current log to an event file. The event file has an EVTX extension.</p>
+            <p>Where would you use such functionality? Suppose you want to send your system’s health status to a third-party vendor—you can provide them with an exported event file. Or, you can archive your logs before deleting them, or send your saved logs to a centralized backup medium. Saving event logs to an event file comes in handy. Administrators click on<b> Open Saved Log</b> and navigate to the log location to open the saved log.</p>
+            <h4>Custom Views</h4>
+            <p>Event Viewer enables you to easily create custom views. This provides quick access if you are interested in certain types of event or events based on severity level.</p>
+            <p>Create a Custom View:</p>
+            <ul>
+                <li>Select <b>Custom Views</b> in the Navigation pane.</li>
+                <li>Click <b>Create Custom View</b> in the Actions pane.</li>
+                <li>Enter the criteria for the events to be included in the Custom View. This example illustrates creating a custom view to capture Critical and Error events for the .NET Runtime services running on the local machine.</li>
+            </ul>
+            <img src="img/logs-15.png">
+            <ul>
+                <li>Click <b>OK</b></li>
+                <li>Enter the <b>Name</b> and <b>Description</b> and select the location for the Custom View</li>
+            </ul>
+            <img src="img/logs-16.png">
+            <ul>
+                <li>Click <b>OK</b></li>
+            </ul>
+            <p>Your Custom View is now available.</p>
+            <img src="img/logs-17.png">
+            <p>Similar to saving logs in an event file, you can export Custom Views.</p>
+            <ol>
+                <li>Select the Custom View in the Navigation pane.</li>
+                <li>Click <b>Export Custom View</b> in the Actions pane.</li>
+                <li>Enter a name for the XML file to create for the Custom View.</li>
+            </ol>
+            <p>The XML file can be imported into Event Viewer on another system by clicking Import Custom View and navigating to the location of the file.</p>
+            <h4>Summary Views</h4>
+            <p><b>Event Viewer</b> (Local) is the top node in the Navigation pane. When selected, the Overview and Summary displays in the Details pane.</p>
+            <ul>
+                <li><b>Summary of Administration Events</b> displays totals for all Event Types over the course of the week.</li>
+                <li><b>Recently Viewed Nodes</b> displays a history of the viewed nodes in chronological order. Double-click on a node to open the location.</li>
+                <li><b>Log Summary</b> displays the major properties of each log file. Double-click to open the events for the log.</li>
+            </ul>
+            <img src="img/logs-18.png">
+            <p>Looking at this example, there were six errors trapped in the last hour, and the number of errors in the last week was 18. Click + to expand the Error listing:</p>
+            <img src="img/logs-19.png">
+            <p>Double-click on an error to open it in the Details pane.</p>
+            <img src="img/logs-20.png">
+            <h4>Other Application Logs</h4>
+            <p>There are other logs with their own event viewing mechanisms in Windows:</p>
+            <ul>
+                <li>DNS Manager</li>
+                <li>Failover Cluster Manager</li>
+                <li>IIS Access</li>
+                <li>Task Scheduler History</li>
+                <li>Windows Component Service</li>
+            </ul>
+            <h4>DNS Manager</h4>
+            <p>If the Windows Server is provisioned as a Domain Name Service (DNS) server, the <b>DNS Manager</b> is installed. In small networks, this is typically the Active Directory Domain Server.</p>
+            <p>DNS Manager has its own list of events:</p>
+            <img src="img/logs-21.png">
+            <h4>Failover Cluster Manager</h4>
+            <p><b>Windows Server Failover Clustering</b> service enables two or more Windows servers to work as a cluster—a fault-tolerant configuration where one server’s physical hardware failure is automatically detected and replaced by the other server. Windows Server Failover Clustering service automatically re-routes all network traffic to the healthy instance, creating a highly available environment. In a cluster, applications connect to a common access point—a virtual IP or a cluster name—and Windows routes all traffic to the correct node. When a fault does happen, applications continue to work as usual. Windows Server Failover Clustering is used as the foundation of modern SQL Server HA solutions like AlwaysOn Availability Groups.</p>
+            <p>The Failover Cluster Manager is a Windows built-in application with its own Event Viewer. Using this Event Viewer, system administrators can troubleshoot when their cluster fails or stops functioning as expected. The following screenshot shows the Cluster Manager event viewer node in the Navigation pane. Selecting this node will show cluster-related events.</p>
+            <img src="img/logs-22.png">
+            <h4>IIS Access Logs</h4>
+            <p>The Internet Information Services access logs include information about requested URIs and status indicating whether the response was successfully served. It writes these logs as files in the W3C Extended Log Format. This format is a type of comma-separated value (CSV). The log file location is specified within the IIS Manager Logging settings. By default, the location is:</p>
+            <i>%SystemDrive%\inetpub\logs\LogFiles</i>
+            <p>For example, here’s a log file on <b>C:</b>, with <b>W3SVC1</b> as the virtual host and <b>u_ex150428</b> as a file name coded with the date 2015-04-28:</p>
+            <i>C:\inetpub\logs\LogFiles\W3SVC1u_ex150428.log</i>
+            <p>Here’s an excerpt from the log file. The column definition is in a comment. The request for <b>/manager/html</b> returned a <b>404</b> status code as the page doesn’t exist.</p>
+            <i>
+                <p>#Software: Microsoft Internet Information Services 7.5</p>
+                <p>#Version: 1.0</p>
+                <p>#Date: 2015-04-28 12:12:05</p>
+                <p>#Fields: date time s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip</p>
+                <p>2015-04-28 02:51:38 10.211.14.109 GET /manager/html - 80 - 222.186.56.21 Mozilla/5.0+(compatible;+MSIE+10.0;+Windows+NT+6.2;+WOW64;+Trident/6.0) - 404 0 64 4850</p>
+            </i>
+            <h4>Task Scheduler History Logs</h4>
+            <p><b>Task Scheduler</b> runs background tasks and applications on a scheduled basis, much like the Linux cron subsystem. An example is a nightly backup script that backs up local SQL Server databases.</p>
+            <p>Each task has associated history events you can view in the Task Scheduler Detail pane:</p>
+            <img src="img/logs-23.png">
+            <p>Windows and associated applications record various events in multiple logs. Trapping and understanding these events are a key part of a system administrator’s role. This guide explores how you can use different methods to collect, centralize, and protect these logs.</p>
+            <h4>Using PowerShell with Windows Logs</h4>
+            <p>Windows PowerShell gives administrators a programmatic way to interact with Windows logs. The older Get-EventLog uses a deprecated Win32 API, so we’ll use the Get-WinEvent for our examples here. With Get-WinEvent, you can view a variety of Windows logs including the Application, System, and Security logs.</p>
+            <h4>Listing available logs</h4>
+            <p>To list all available logs on a system, use this command:</p>
+            <i> Get-WinEvent -ListLog *</i>
+            <p>The output will look similar to this:</p>
+            <img src="img/logs-24.png">
+            <p>Here is what each of the column names means:</p>
+            <ul>
+                <li>LogMode - How logs are (or aren’t) overwritten when the log is full. Circular means a first-in first-out (FIFO) style where new logs automatically overwrite old logs/</li>
+                <li>MaximumSizeInBytes - The maximum size of the log file.</li>
+                <li>RecordCount - The number of individual records in the log file.</li>
+                <li>LogName - The name of the logfile</li>
+            </ul>
+            <h4>Viewing Event Logs</h4>
+            <p>To list logs on a Windows system, you can use the command:</p>
+            <i>Get-WinEvent -LogName &lt; LogName &gt; </i>
+            <p>Where &lt;LogName&gt; is the name is one of the logs in the output of Get-WinEvent -ListLog *.</p>
+            <p>For example, to view all the Application log records on a local Windows system, use this command:</p>
+            <i>Get-WinEvent -LogName 'Application'</i>
+            <p>In many cases, log files contain hundreds of lines of records. To limit how many records are displayed, use the -MaxEvents parameter. For example, to view only the last 5 Application log records, use this command:</p>
+            <i>Get-WinEvent -LogName 'Application' -MaxEvents 5</i>
+            <img src="img/logs-25.png">
+            <h4>Filter for specific Event IDs</h4>
+            <p>If you know what log file and event ID you’re looking for, PowerShell hashtables make it easy to filter through Windows Logs. Hashtables use key/value pairs to simplify PowerShell queries.</p>
+            <p>For example, to list all Security log entries with ID 4672 (Special privileges assigned to new logon), use this command:</p>
+            <i>Get-WinEvent -FilterHashtable @{ Logname='Security'; Id='4672' }</i>
+            <img src="img/logs-26.png">
+            <h4>Filter based on date and time</h4>
+            <p>To further refine your PowerShell log searches, you can use the Get-Date cmdlet in your query. For example, to limit our query of Security log entries with ID 4672 to the last hour, we can use this command:</p>
+            <i>Get-WinEvent -FilterHashtable @{ Logname='Security'; Id='4672'; StartTime=(Get-Date).AddHours(-1) }</i>
+            <img src="img/logs-27.png">
+            <p>The Get-Date cmdlet allows for similar filters for other units of time as well. They are:</p>
+            <ul>
+                <li>(Get-Date).AddTicks</li>
+                <li>(Get-Date).AddMilliseconds</li>
+                <li>(Get-Date).AddSeconds</li>
+                <li>(Get-Date).AddMinutes</li>
+                <li>(Get-Date).AddDays</li>
+                <li>(Get-Date).AddMonths</li>
+                <li>(Get-Date).AddYears</li>
+            </ul>
+        </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+                <p>We are passionate about helping people stay safe online and providing up-to-date information about the ever-evolving cyber security landscape. </p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

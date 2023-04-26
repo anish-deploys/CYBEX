@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="icon" type="images/x-icon" href="img/logo-01.jpg" />
+    <link rel="stylesheet" href="Stylesheet/courses_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav_container">
+            <img src="img/logo.png" alt="">
+            <!-- <a href="index.html"><h4>CYBEX</h4></a> -->
+            <ul class="nav_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses_page.html">Courses</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button id="open-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            <button id="close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </nav>
+
+    <div class="nested-navigation-container nested-navigation-hidden" id="nested-navigation-container_id">
+        <div class="nested-navigation-container_content" id="nested-navigation-container-contentID">
+            <h1>Courses</h1>
+            <div class="nested-navigation-container_Content_data">
+                <div class="nested-navigation-item">
+                    <h2>Windows</h2>
+                    <a href="install_win.html">Installing Windows</a>
+                    <a href="active.html">Active Directory</a>
+                    <a href="server_roles.html">Server Roles</a>
+                    <a href="logs.html">Log Analysis</a>
+                </div>
+                <div class="nested-navigation-item">
+                    <h2>Linux</h2>
+                    <a href="linux.html">Linux Introduction</a>
+                    <a href="distro.html">Linux Distribution</a>
+                    <a href="shell.html">Linux Shell</a>
+                    <a href="shell_script.html">Linux Shell Script</a>
+                    <a href="install.html">Linux Installation</a>
+                    <a href="command.html">Linux Commands</a>
+                    <a href="sudo.html">Linux Sudo</a>
+                    <a href="apt_get.html">Linux Apt-get</a>
+                    <a href="top.html">Linux Top</a>
+                    <a href="vim.html">Linux Vim</a>
+                </div>
+                <div class="nested-navigation-item">
+                    
+                    <h2>Networking</h2>
+                    <a href="osi.html">OSI Layers</a>
+                    <a href="attack.html">Attack Surface</a>
+                    <a href="firewall.html">Firewall</a>
+                    <a href="firewall_wall.html">Firewall Zones</a>
+                    <a href="web.html">Web Application Firewall</a>
+                    <a href="ids.html">IDS</a>
+                    <a href="ips.html">IPS</a>
+                    <a href="suricata.html">Suricata</a>
+                    <a href="install_suricata.html">Installing Suricata</a>
+                </div>
+                <div class="nested-navigation-item">
+                    <h2>Vulnerability Assessment</h2>
+                    <a href="va.html">Introduction</a>
+                    <a href="nessus.html">Nessus</a>
+                    <a href="install_nessus.html">Installing Nessus</a>
+                </div>
+                <div class="nested-navigation-item">
+                    <h2>SOC Operations</h2>
+                    <a href="cia.html">CIA Triad</a>
+                    <a href="imple.html">Implementation of SOC</a>
+                    <a href="threats.html">Cyber Threats</a>
+                    <a href="network_attack.html">Network Level Attacks</a>
+                    <a href="host_header.html">Host Level Attacks</a>
+                    <a href="app_layer.html">Application Level Attacks</a>
+                    <a href="ioc.html">Indicators of Compromise</a>
+                    <a href="events.html">Incidents, Events and Logging</a>
+                </div>
+                <div class="nested-navigation-item">
+                    <h2>SIEM Tools</h2>
+                    <a href="qrada.html">Qradar</a>
+                    <a href="install_qadar.html">Installing Qradar</a>
+                    <a href="splunk.html">Splunk</a>
+                    <a href="install_splunk.html">Installing Splunk</a>
+                    <a href="wazuh.html">Wazuh</a>
+                    <a href="install_wazuh.html">Installing Wazuh</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+                <p>We are passionate about helping people stay safe online and providing up-to-date information about the ever-evolving cyber security landscape. </p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.htmls">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./index.js"></script>
+</body>
+</html>

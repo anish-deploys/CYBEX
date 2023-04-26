@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Host Level Attacks</h1>
+                <div class="HTML_btn_container">
+                    <a href="soc_network_atttack.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="soc_app_layer.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+            <h3>What Is a Host Header Attack?</h3>
+            <p>It is common practice for the same web server to host several websites or web applications on the same IP address. This why the host header exists. The host header specifies which website or web application should process an incoming HTTP request. The web server uses the value of this header to dispatch the request to the specified website or web application. Each web application hosted on the same IP address is commonly referred to as a virtual host. So what constitutes a host header attack?</p>
+            <p>What happens if we specify an invalid Host Header? Most web servers are configured to pass the unrecognized host header to the first virtual host in the list. Therefore, it’s possible to send requests with arbitrary host headers to the first virtual host.</p>
+            <p>Another way to pass arbitrary Host headers is to use the X-Forwarded-Host header. In some configurations, this header will rewrite the value of the Host header. Therefore it’s possible to make the following request.</p>
+            <i>GET / HTTP/1.1 Host: www.example.com X-Forwarded-Host: www.attacker.com</i>
+            <p>Many web applications rely on the HTTP host header to understand “where they are.” Unfortunately, what many application developers do not realize is that the HTTP host header is controlled by the user. As you might already know, in application security user input should always be considered unsafe and therefore, never trusted without properly validating it first.</p>
+            <p>The use of the host header is especially common in PHP web applications, however, it’s certainly not a problem endemic to PHP web applications. The PHP script in the following example is a typical and dangerous use of the host header.</p>
+            <i>&lt;script src="http://<?php echo _SERVER['HOST'] ?>/script.js"&gt;</i>
+            <p>An attacker can potentially manipulate the code above to produce the following HTML output just by manipulating the host header.</p>
+            <i>&lt;script src="http://attacker.com/script.js"&gt;</i>
+            <p>The two major attack vectors host header attacks enable are web-cache poisoning, and abuses of alternative channels for conducting sensitive operations, such as password resets.</p>
+            <h4>Web-Cache Poisoning</h4>
+            <p>Web-cache poisoning is a technique used by an attacker to manipulate a web-cache to serve poisoned content to anyone who requests pages.</p>
+            <p>For this to occur, an attacker would need to poison a caching proxy run by the site itself, or downstream providers, content delivery networks (CDNs), syndicators, or other caching mechanisms in-between the client and the server. The cache will then serve the poisoned content to anyone who requests it, with the victim having no control whatsoever on the malicious content being served to them.</p>
+            <p>The below is an example of how an attacker could potentially exploit a host header attack by poisoning a web-cache.</p>
+            <i>
+                <p>1 $ telnet www.example.com 80</p>
+                <p>2 Trying x.x.x.x...</p>
+                <p>3 Connected to www.example.com.</p>
+                <p>4 Escape character is '^]'.</p>
+                <p>5 GET /index.html HTTP/1.1</p>
+                <p>6 Host: attacker.com</p>
+                <p>7 </p>
+                <p>8 HTTP/1.1 200 OK</p>
+                <p>9 ...</p>
+                <p>10 </p>
+                <p>11 &lt;html&gt;</p>
+                <p>12 &lt;head&gt;</p>
+                <p>13 &lt;title&gt;Example&lt;/title&gt;</p>
+                <p>14 &lt;script scr="http://attacker.com/script.js"&gt;</p>
+                <p>15 ...</p>
+            </i>
+            <h4>Password Reset Poisoning</h4>
+            <p>A common way to implement password reset functionality is to generate a secret token and send an email with a link containing this token. What could happen if an attacker requests a password reset with an attacker-controlled host header?</p>
+            <p>If the web application makes use of the host header value when composing the reset link, an attacker can poison the password reset link that is sent to a victim. If the victim clicks on the poisoned reset link in the email, the attacker will obtain the password reset token and can go ahead and reset the victim’s password.</p>
+            <h4>Detecting Password Reset Poisoning Vulnerabilities</h4>
+            <p>We’ll use an old version of Piwik (an open source web analytics platform) which was vulnerable to password reset poisoning via a host header attack for a demonstration of this vulnerability.</p>
+            <p>In order to detect password reset poisoning automatically, we’ll need to rely on an intermediary service since the detection of password reset poisoning via a host header attack requires an out-of-band and time-delay vector. Acunetix solves this by making use of AcuMonitor as its intermediary service during an automated scan.</p>
+            <p>During a scan, Acunetix will locate the password reset page and inject a custom host header pointing to an AcuMonitor domain. If vulnerable, the application in question (an old version of Piwik in this example) will generate the password reset link using this value and send an email to the user concerned, as follows.</p>
+            <h4>Mitigation</h4>
+            <p>Mitigating against host header is simple — don’t trust the host header. However, in some cases, this is easier said than done (especially situations involving legacy code). If you must use the host header as a mechanism for identifying the location of the web server, it’s highly advised to make use of a whitelist of allowed hostnames.</p>
+        </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a><p>We are passionate about helping people stay safe online and providing up-to-date information about the ever-evolving cyber security landscape. </p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

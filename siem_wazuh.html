@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Wazuh</h1>
+                <div class="HTML_btn_container">
+                    <a href="siem_install_splunk.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="siem_install_wazuh.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+            <h3>Introduction to Wazuh</h3>
+            <p>We all know that today organizations have various endpoints (machines) running multiple services to execute business operations successfully. Today, even a small-scale organization has a minimum of 10 to 20 systems in its infra. These machines are constantly collecting data and generating logs. The problem is not big data! The actual challenge that organizations face is analyzing and utilizing these big data. These endpoints generate various events (records) crucial for analysis and creating alerts for critical security violations/ attacks. Organizations adopt SIEM (Security Information Event Management) solutions to tackle this problem. </p>
+            <p>It is essential to know two key terms to understand the actual meaning of SIEM:</p>
+            <ul>
+                <li><b>SEM </b>– Security Event Management: it deals with collecting logs from endpoints.</li>
+                <li><b>SIM</b>Security Information Management: it deals with analyzing collected logs.</li>
+            </ul>
+            <p>So the formula sums up something like:</p>
+            <i>SEM + SIM  = SIEM (Security Information Event Management)</i>
+            <p>By understanding the above formula, we can conclude that SIEM is a solution that helps the companies collect the logs and helps to convert the records into helpful information that later can be analyzed (as the logs are stored). At the same time, it also provides real-time monitoring and analysis capabilities and creates alerts when any rule violation or security attack occurs.</p>
+            <p>The prime aspect is Data Aggregation. In this phase, logged data is collected from various endpoints like firewalls, desktops and stored in a centralized database. These logs are adequately summarized for better visibility over suspicious events from a massive amount of records.</p>
+            <p>Listed below are some of the essential functionalities that exist/must exist in a SIEM: </p>
+            <ul>
+                <li>Log Collection</li>
+                <li>User Activity Monitoring</li>
+                <li>Real-Time Event Correlation</li>
+                <li>Log Retention</li>
+                <li>IT Reports</li>
+                <li>Log Monitoring</li>
+                <li>Rules and their mapping</li>
+                <li>Integration of CTI (Cyber Threat Intelligence)</li>
+                <li>Visualization Dashboards</li>
+            </ul>
+            <p>There are a lot of industry-recognized vendors that are providing top-notch SIEM solutions to the companies. IBM QRadar, Splunk Security, LogRythm, etc., are some examples, to name a few. These solutions are in the premium range it means that one has to invest a reasonable amount for adopting these solutions. Yes, companies do invest as cyber defense is the priority. Still, it is not feasible for small-scale organizations or institutional bodies like schools or colleges to pay a hefty price just for security solutions. </p>
+            <p><b>Due to this, it is easy for these institutes/companies to rely on Open Source SIEM solutions.</b> Even large-scale organizations adopt these open source solutions for better customization and scalability. However, the only caveat is that there needs to be a technical expert to implement these Open Source SIEM. Yes, there is complete, well-written documentation and guides from the vendor, but generally, these documentations are overlooked by non-technical folks. Secondly, it is possible to directly approach the vendor for deployment assistance, but it may come with a cost.</p>
+            <p>One of the well-known and well popular SIEM out there is WAZUH.</p>
+            <p>Wazuh is a threat prevention, detection, and response platform that is free and open source. It safeguards workloads on-premises, in virtualized, containerized, and cloud settings. Wazuh is utilized by hundreds of companies worldwide, ranging from tiny firms to major corporations. Wazuh is a security data collection, aggregation, indexing, and analysis tool that aids businesses in detecting intrusions, threats, and suspicious behavior.</p>
+            <p>Now let us understand the basic working and component workflow of Wazuh.</p>
+            <p>Wazuh’s platform includes security capabilities for cloud, container, and server applications. Log data analysis, intrusion and malware detection, file integrity monitoring, configuration assessment, vulnerability detection, and regulatory compliance help are examples of these services. The three components that make up the Wazuh solution are as follows:</p>
+            <ul>
+                <li><b>Wazuh agent:</b>Provides prevention, detection, and response capabilities when installed on endpoints such as laptops, desktops, servers, cloud instances, or virtual machines. It is compatible with Windows, Linux, macOS, HP-UX, Solaris, and AIX.</li>
+                <li><b>Wazuh server:</b>examines data received from agents, processing it using decoders and rules and utilizing threat intelligence to hunt for well-known indicators of compromise (IOCs). When configured as a cluster, a single server can evaluate data from hundreds or thousands of agents and scale horizontally.</li>
+                <li><b>Elastic Stack:</b>indexes and saves Wazuh server alerts. Furthermore, the Wazuh and Kibana integration provides a rich user interface for data visualization and analysis. Wazuh settings and status are also managed and monitored through this interface.</li>
+            </ul>
+            <p>The Wazuh platform can monitor agent-less devices such as firewalls, switches, routers, and network IDS, among others, in addition to agent-based devices. For example, systems can use Syslog to collect system log data, and its settings can be monitored by probing its data regularly. The Wazuh components and data flow are shown in the diagram below. It represents the Wazuh agent, Wazuh server, and Elastic Stack, which are the three critical components of the solution.</p>
+            <img src="img/wazuh-1.jpg">
+            <p>Wazuh agents check for malware, rootkits, and suspicious anomalies on the monitored systems. Hidden files, cloaked processes, unregistered network listeners, as well as discrepancies in system call responses, can all be detected. In addition to agent capabilities, the server component employs a signature-based approach to intrusion detection, analyzing acquired log data and looking for signs of compromise using its regular expression engine.</p>
+            <p>Listed below are some core functionalities of Wazuh: </p>
+            <ul>
+                <li>Intrusion Detection</li>
+                <li>Log Data Analysis</li>
+                <li>File Integrity Monitoring</li>
+                <li>Vulnerability Detection</li>
+                <li>Incident Response</li>
+                <li>Regulatory Compliance</li>
+                <li>Cloud & Container Security Monitoring</li>
+            </ul>
+            <p>So to conclude, Wazuh is an excellent choice for Open Source SIEM, which is reliable, easy, and could provide an operational security workflow for strengthening the security posture.</p>
+        </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.htmls">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

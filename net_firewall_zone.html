@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Firewall Zone</h1>
+                <div class="HTML_btn_container">
+                    <a href="net_firewall.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="net_web.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+                <h3>Zone-based firewall</h3>
+                <p>A firewall is a network security system that monitors and takes actions on the ingoing or outgoing packets based on the defined rules. It can be a hardware device or software. </p>
+                <p>An organization that cannot afford a hardware firewall device uses an alternative i.e implementing firewall features on Cisco IOS router by using CBAC or by using a Zone-based firewall.CBAC is a predecessor to a Zone-based firewall. </p>
+                <h3>Zone-based Firewall – </h3>
+                <p>A Zone-based firewall is an advanced method of the stateful firewall. In a stateful firewall, a stateful database is maintained in which source IP address, destination IP address, source port number, destination port number is recorded. Due to this, only the replies are allowed i.e if the traffic is Generated from inside the network then only the replies (of inside network traffic) coming from outside the network is allowed. </p>
+                <p>Cisco IOS router can be made firewall through two methods: </p>
+                <p>1. By using CBAC: create an access-list and apply it to the interfaces keeping in mind what traffic should be allowed or denied and in what direction. This has an extra overhead for the administrator. </p>
+                <p>2. Using a Zone-based firewall. </p>
+                <h3>Terms:</h3>
+                <p><b>1. Zone –</b> A zone is a logical area in which the devices having the same trust levels reside. After creating a zone, an interface is assigned to a zone. By default, traffic is not allowed from one zone to another. </p>
+                <img src="img/firewall_zone-1.png">
+                <p>For example, first, we create a zone called inside then if the router interface fa0/0 resides on the most trusted network which we name as inside, then fa0/0 is assigned to the inside zone. </p>
+                <p><b>2. Zone-pair –</b> Policies are defined in which traffic is identified (what type of traffic) then what action should be taken (Inspect Denied, permit). Then we have to apply these policies to a zone-pair. A zone-pair is always unidirectional. If we want to make it bidirectional then we have to create another zone-pair. </p>
+                <p>For instance, if we want to allow the traffic from inside to outside the network then we have to create a zone-pair. If we have chosen the action to inspect then the reply is permitted from outside the network if the traffic is generated from the inside network (stateful filtering).</p>
+                <img src="img/firewall_zone-2.png">
+                <p>Now, if we want to allow outside traffic to be able to reach the inside network then we have to make a separate zone-pair. This zone-pair will allow the traffic to reach the inside network if the traffic is generated from the outside network.</p>
+                <p><b>3. Self-zone –</b>  Traffic destined to the router itself, irrespective of which device has sent, is known as self zone. The traffic generated from the router is known as traffic coming from the self-zone. Traffic going to the router is considered as traffic going to Self-zone. By default, the traffic to or from the Self-zone is allowed however it can be changed according to the policies applied.</p>
+                <h3>Working: </h3>
+                <p>First, the zones are defined and named. Although, we can give any name by naming convention that makes sense, name the zones as inside, outside, and DMZ. </p>
+                <p><b>1. inside:</b>The most trusted (private) network. </p>
+                <p><b>2. outside:</b>The most untrusted (public) network. </p>
+                <p><b>3. DMZ:</b> (public zone) contains devices like servers. </p>
+                <p>Now, as zones have been named, policies are created which will include what type of traffic is allowed to be generated and allowed to go through from inside network to outside network and what actions (such as inspect [stateful inspection]) should be taken on the traffic. </p>
+                <p>The actions can be: </p>
+                <p><b>1. inspect:</b>an entry will be made in a stateful database for the protocols (for which the policies have been applied) so that the replies (for inside network) can come back. </p>
+                <p><b>2. drop: </b>default action if the traffic does not match the policies. </p>
+                <p><b>3. pass: </b>the traffic will be allowed from one zone to another but no session is maintained. </p>
+                <p>The traffic which will not match the policies will be dropped due to the default policy. These policies will be defined for one direction (such as inside to outside) in a zone pair. </p>
+                <p>If conditions require to allow initial traffic to be generated in both directions (inside to outside network and outside to inside network), then two separate zone-pairs will be created and separate policies are applied. </p>
+                <p><b>Advantages –</b> Some of the advantages are: </p>
+                <p>1. By default, the traffic is blocked unlike CBAC. In Zone-based firewall, no traffic is allowed from one zone to another while in CBAC, all traffic is allowed if no explicit ACL is applied. </p>
+                <p>2. Unlike CBAC, Zone-based firewall is not heavily dependent on ACL. </p>
+                <p>3. It is easy to add another interface as only the zone has to be declared to which the interface belongs as all the policies will be the same as applied explicitly before for that zone. </p>
+            </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

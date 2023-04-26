@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">IPS</h1>
+                <div class="HTML_btn_container">
+                    <a href="net_ids.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="net_suricata.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+                <h3>Intrusion Prevention System (IPS)</h3>
+                <p>Intrusion Prevention System is also known as Intrusion Detection and Prevention System. It is a network security application that monitors network or system activities for malicious activity. Major functions of intrusion prevention systems are to identify malicious activity, collect information about this activity, report it and attempt to block or stop it. </p>
+                <p>Intrusion prevention systems are contemplated as augmentation of Intrusion Detection Systems (IDS) because both IPS and IDS operate network traffic and system activities for malicious activity. </p>
+                <p>IPS typically record information related to observed events, notify security administrators of important observed events and produce reports. Many IPS can also respond to a detected threat by attempting to prevent it from succeeding. They use various response techniques, which involve the IPS stopping the attack itself, changing the security environment or changing the attack’s content. </p>
+                <h3>How Does an IPS Work?</h3>
+                <p>An IPS works by analyzing network traffic in real-time and comparing it against known attack patterns and signatures. When the system detects suspicious traffic, it blocks it from entering the network.</p>
+                <h3>Types of IPS</h3>
+                <p>There are two main types of IPS:</p>
+                <p><b>1. Network-Based IPS:</b>A Network-Based IPS is installed at the network perimeter and monitors all traffic that enters and exits the network.</p>
+                <p><b>2. Host-Based IPS:</b>A Host-Based IPS is installed on individual hosts and monitors the traffic that goes in and out of that host.</p>
+                <h3>Why Do You Need an IPS?</h3>
+                <p>An IPS is an essential tool for network security. Here are some reasons why:</p>
+                <ul>
+                    <li>Protection Against Known and Unknown Threats: An IPS can block known threats and also detect and block unknown threats that haven’t been seen before.</li>
+                    <li>Real-Time Protection: An IPS can detect and block malicious traffic in real-time, preventing attacks from doing any damage.</li>
+                    <li>Compliance Requirements: Many industries have regulations that require the use of an IPS to protect sensitive information and prevent data breaches.</li>
+                    <li>Cost-Effective: An IPS is a cost-effective way to protect your network compared to the cost of dealing with the aftermath of a security breach.</li>
+                    <li>Increased Network Visibility: An IPS provides increased network visibility, allowing you to see what’s happening on your network and identify potential security risks.</li>
+                </ul>
+                <p><b>Classification of Intrusion Prevention System (IPS): </b>Intrusion Prevention System (IPS) is classified into 4 types: </p>
+                <p><b>1. Network-based intrusion prevention system (NIPS): </b>It monitors the entire network for suspicious traffic by analyzing protocol activity. </p>
+                <p><b>2. Wireless intrusion prevention system (WIPS): </b>It monitors a wireless network for suspicious traffic by analyzing wireless networking protocols.</p>
+                <p><b>3. Network behavior analysis (NBA): </b>It examines network traffic to identify threats that generate unusual traffic flows, such as distributed denial of service attacks, specific forms of malware and policy violations.</p>
+                <p><b>4. Host-based intrusion prevention system (HIPS): </b>It is an inbuilt software package which operates a single host for doubtful activity by scanning events that occur within that host.</p>
+                <h3>Detection Method of Intrusion Prevention System (IPS):</h3>
+                <p><b>1. Signature-based detection:</b>Signature-based IDS operates packets in the network and compares with pre-built and preordained attack patterns known as signatures. </p>
+                <p><b>2. Statistical anomaly-based detection: </b>Anomaly based IDS monitors network traffic and compares it against an established baseline. The baseline will identify what is normal for that network and what protocols are used. However, It may raise a false alarm if the baselines are not intelligently configured.</p>
+                <p><b>3. Stateful protocol analysis detection:</b>This IDS method recognizes divergence of protocols stated by comparing observed events with pre-built profiles of generally accepted definitions of not harmful activity.</p>
+                <h3>Comparison of IPS with IDS:</h3>
+                <p>The main difference between Intrusion Prevention System (IPS) with Intrusion Detection Systems (IDS) are: </p>
+                <p>1. Intrusion prevention systems are placed in-line and are able to actively prevent or block intrusions that are detected.</p>
+                <p>2. IPS can take such actions as sending an alarm, dropping detected malicious packets, resetting a connection or blocking traffic from the offending IP address.</p>
+                <p>3. IPS also can correct cyclic redundancy check (CRC) errors, defragment packet streams, mitigate TCP sequencing issues and clean up unwanted transport and network layer options. </p>
+                <h3>Conclusion:</h3>
+                <p>An Intrusion Prevention System (IPS) is a crucial component of any network security strategy. It monitors network traffic in real-time, compares it against known attack patterns and signatures, and blocks any malicious activity or traffic that violates network policies. An IPS is an essential tool for protecting against known and unknown threats, complying with industry regulations, and increasing network visibility. Consider implementing an IPS to protect your network and prevent security breaches.</p>
+            </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

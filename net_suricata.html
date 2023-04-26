@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Suricata</h1>
+                <div class="HTML_btn_container">
+                    <a href="net_ips.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="net_install_suricata.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+                <h3>How to configure & use Suricata for threat detection</h3>
+                <p>Suricata is an excellent, low-cost tool that gives you greater insight into a network. Despite this, it needs to be viewed as a single layer in a comprehensive security plan, rather than a complete solution for security issues.</p>
+                <p>The engine is designed to take advantage of the newest multi-core CPU chip sets, as well as utilize hardware acceleration for greater processing power. The high efficiency of Suricata, its IP reputation support and automated protocol detection make it an effective tool for giving greater visibility into a network.</p>
+                <h3>What Is Suricata?</h3>
+                <p>In 2010, Open Information Security Foundation (OISF) released an open source threat detection engine known as Suricata. Suricata can act as an intrusion detection system (IDS), and intrusion prevention system (IPS), or be used for network security monitoring. It was developed alongside the community to help simplify security processes.</p>
+                <h3>What is Suricata used for?</h3>
+                <p>You can set up Suricata in three main ways:</p>
+                <p>1. The simplest way is to set it up as a host-based IDS, which monitors the traffic of an individual computer.</p>
+                <p>2. As a passive IDS, Suricata can monitor all of the traffic through a network and notify the administrator when it comes across anything malicious.</p>
+                <p>3. When Suricata is set up as an active, inline IDS and IPS, it can monitor inbound and outbound traffic. It can stop malicious traffic before it enters the network, as well as alert the administrator.</p>
+                <h3>How can I configure Suricata?</h3>
+                <p>Begin by creating a virtual machine for the IDS. Ubuntu 32 bit with default options will be fine.</p>
+                <p>Once the machine is created, the adapter 2 interface can be added for the internal network.</p>
+                <p>Once the adaptor is added, try installing the operating system (Ubuntu 32 bit for this tutorial).</p>
+                <p>Once the operating system is installed, configure a static address for the internal interface.</p>
+                <p>Once the interfaces are configured, try adding an OISF Suricata stable repository and installing Suricata using following command:</p>
+                <i>sudo add-apt-repository ppa:oisf/suricata-stable</i>
+                <i>sudo apt-get update</i>
+                <i>sudo apt-get install suricata</i>
+                <p>This tutorial demonstrates Suricata running as a NAT gateway device. The following steps require elevated privileges. Setup the NAT by editing /etc/sysctl.conf as follows:</p>
+                <i>net.ipv4.ip_forward = 1</i>
+                <p>Once this is done, try loading sysctl settings manually by using following command:</p>
+                <i>sysctl -p</i>
+                <p>Once this is done, we can finally try configuring iptables to forward packets between the internal and external interfaces.</p>
+                <i>iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE</i>
+                <i>iptables -A FORWARD -i enp0s3 -o enp0s8 -m state –state RELATED,ESTABLISHED -j ACCEPT</i>
+                <i>iptables -A FORWARD -i enp0s8 -o enp0s3 -j ACCEPT</i>
+                <i>iptables-save >> fw_rules</i>
+                <p>Once the Suricata is installed, we can create a virtual machine for the test workstation.</p>
+                <p>Once the machine is created, we can attach the primary interface to the internal network used above.</p>
+                <p>Once the interface is configured, try installing the operation system. We need to configure an IP address manually when prompted.</p>
+                <p>We can use the Suricata address as the gateway, so traffic should pass through the IDS.</p>
+                <p>Once installed, we need to verify the network connectivity by pinging the test environment and Suricata.</p>
+                <p>Return to the IDS and configure Suricata. Edit /etc/suricata/suricata.yaml by changing the af-packet interface to the internal interface.</p>
+                <p>Configure the file-store and file-log outputs.</p>
+                <p>Configure the stream and libhtp settings using the following commands:</p>
+                <i>stream.checksum_validation                 no</i>
+                <i>libhtp.default-config.request-body-limit    0</i>
+                <i>libhtp.default-config.response-body-limit    0</i>
+                <p>Add a local rule file to the top of the rule list. Add a test rule to /etc/suricata/rules/local.rules. Using following command.</p>
+                <i>alert http any any -> any any (msg:”FILE store all”; filestore; sid:1; rev:1;)</i>
+                <p>Once this is done, we can put into effect all the configuration by restarting both the systems.</p>
+                <h3>How can I test my Suricata lab environment?</h3>
+                <p>We can test this lab setup by downloading a test site on the test workstation. Wget is the command we will use for this purpose.</p>
+                <p>As you can see, Suricata will now save files it detects in the traffic stream to disk. Setup a directory watch on the IDS and download some files from the test workstation.</p>
+                <p>The detected files are renamed to file.x and their metadata is stored in the corresponding file.x.met</p>
+            </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

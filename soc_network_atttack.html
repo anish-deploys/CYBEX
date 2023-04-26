@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Network Level Attacks</h1>
+                <div class="HTML_btn_container">
+                    <a href="soc_threat.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="soc_host_header.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+            <h3>Network Attacks and Network Security Threats</h3>
+            <p>Your enterprise network is large and complex, and probably relies on numerous connected endpoints. While this is good for your business operations, and makes your workflow easier to maintain, it also presents a challenge for security. The trouble is that the flexibility of movement within your network means that if a malicious actor gains access to your network, they are free to move around and cause damage, often without your knowledge. These network security threats leave your organization highly exposed to a data breach.</p>
+            <h4>What Is a Network Attack?</h4>
+            <p>A network attack is an attempt to gain unauthorized access to an organization’s network, with the objective of stealing data or perform other malicious activity. There are two main types of network attacks:</p>
+            <ul>
+                <li><b>Passive: </b>Attackers gain access to a network and can monitor or steal sensitive information, but without making any change to the data, leaving it intact.</li>
+                <li><b>Active:</b>Attackers not only gain unauthorized access but also modify data, either deleting, encrypting or otherwise harming it.</li>
+            </ul>
+            <h5>We distinguish network attacks from several other types of attacks:</h5>
+            <ul>
+                <li><b>Endpoint attacks—</b>gaining unauthorized access to user devices, servers or other endpoints, typically compromising them by infecting them with malware.</li>
+                <li><b>Malware attacks—</b>infecting IT resources with malware, allowing attackers to compromise systems, steal data and do damage. These also include ransomware attacks.</li>
+                <li><b>Vulnerabilities, exploits and attacks—</b>exploiting vulnerabilities in software used in the organization, to gain unauthorized access, compromise or sabotage systems.</li>
+                <li><b>Advanced persistent threats—</b>these are complex multilayered threats, which include network attacks but also other attack types.</li>
+            </ul>
+            <p>In a network attack, attackers are focused on penetrating the corporate network perimeter and gaining access to internal systems. Very often, once inside attackers will combine other types of attacks, for example compromising an endpoint, spreading malware or exploiting a vulnerability in a system within the network.</p>
+            <h4>What are the Common Types of Network Attacks?</h4>
+            <p>Following are common threat vectors attackers can use to penetrate your network.</p>
+            <ol>
+                <li><b>Unauthorized access:</b>Unauthorized access refers to attackers accessing a network without receiving permission. Among the causes of unauthorized access attacks are weak passwords, lacking protection against social engineering, previously compromised accounts, and insider threats.</li>
+                <li><b>Distributed Denial of Service (DDoS) attacks:</b>Attackers build botnets, large fleets of compromised devices, and use them to direct false traffic at your network or servers. DDoS can occur at the network level, for example by sending huge volumes of SYN/ACC packets which can overwhelm a server, or at the application level, for example by performing complex SQL queries that bring a database to its knees.</li>
+                <li><b>Man in the middle attacks:</b>A man in the middle attack involves attackers intercepting traffic, either between your network and external sites or within your network. If communication protocols are not secured or attackers find a way to circumvent that security, they can steal data that is being transmitted, obtain user credentials and hijack their sessions.</li>
+                <li><b>Code and SQL injection attacks:</b>Many websites accept user inputs and fail to validate and sanitize those inputs. Attackers can then fill out a form or make an API call, passing malicious code instead of the expected data values. The code is executed on the server and allows attackers to compromise it.</li>
+                <li><b>Privilege escalation:</b>Once attackers penetrate your network, they can use privilege escalation to expand their reach. Horizontal privilege escalation involves attackers gaining access to additional, adjacent systems, and vertical escalation means attackers gain a higher level of privileges for the same systems.</li>
+                <li><b>Insider threats:</b>A network is especially vulnerable to malicious insiders, who already have privileged access to organizational systems. Insider threats can be difficult to detect and protect against, because insiders do not need to penetrate the network in order to do harm. New technologies like User and Even Behavioral Analytics (UEBA) can help identify suspicious or anomalous behavior by internal users, which can help identify insider attacks.</li>
+            </ol>
+            <h4>Network Protection Best Practices</h4>
+            <ul>
+                <li><b>Segregate Your Network:</b>A basic part of avoiding network security threats is dividing a network into zones based on security requirements. This can be done using subnets within the same network, or by creating Virtual Local Area Networks (VLANs), each of which behaves like a complete separate network. Segmentation limits the potential impact of an attack to one zone, and requires attackers to take special measures to penetrate and gain access to other network zones.</li>
+                <li><b>Regulate Access to the Internet via Proxy Server:</b>Do not allow network users to access the Internet unchecked. Pass all requests through a transparent proxy, and use it to control and monitor user behavior. Ensure that outbound connections are actually performed by a human and not a bot or other automated mechanism. Whitelist domains to ensure corporate users can only access websites you have explicitly approved.</li>
+                <li><b>Place Security Devices Correctly:</b>Place a firewall at every junction of network zones, not just at the network edge. If you can’t deploy full-fledged firewalls everywhere, use the built-in firewall functionality of your switches and routers. Deploy anti-DDoS devices or cloud services at the network edge. Carefully consider where to place strategic devices like load balancers – if they are outside the Demilitarized Zone (DMZ), they won’t be protected by your network security apparatus.</li>
+                <li><b>Use Network Address Translation:</b>Network Address Translation (NAT) lets you translate internal IP addresses into addresses accessible on public networks. You can use it to connect multiple computers to the Internet using a single IP address. This provides an extra layer of security, because any inbound or outgoing traffic has to go through a NAT device, and there are fewer IP addresses which makes it difficult for attackers to understand which host they are connecting to.</li>
+                <li><b>Monitor Network Traffic:</b>Ensure you have complete visibility of incoming, outgoing and internal network traffic, with the ability to automatically detect threats, and understand their context and impact. Combine data from different security tools to get a clear picture of what is happening on the network, recognizing that many attacks span multiple IT systems, user accounts and threat vectors.</li>
+            </ul>
+            <p>Achieving this level of visibility can be difficult with traditional security tools. Cynet 360 is an integrated security solution offering advanced network analytics, which continuously monitors network traffic, automatically detect malicious activity, and either respond to it automatically or pass context-rich information to security staff.</p>
+            <ul>
+                <li><b>Use Deception Technology:</b>No network protection measures are 100% successful, and attackers will eventually succeed in penetrating your network. Recognize this and place deception technology in place, which creates decoys across your network, tempting attackers to “attack” them, and letting you observe their plans and techniques. You can use decoys to detect threats in all stages of the attack lifecycle: data files, credentials and network connections.</li>
+            </ul> 
+        </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+                <p>We are passionate about helping people stay safe online and providing up-to-date information about the ever-evolving cyber security landscape. </p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

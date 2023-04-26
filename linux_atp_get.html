@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="images/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">Linux Apt-get</h1>
+                <div class="HTML_btn_container">
+                    <a href="linux_sudo.html" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Previous
+                    </a>
+                    <a href="linux_top.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+                <h3>apt-get command in Linux with Examples</h3>
+                <p>apt-get is a command-line tool which helps in handling packages in Linux. Its main task is to retrieve the information and packages from the authenticated sources for installation, upgrade and removal of packages along with their dependencies. Here APT stands for the Advanced Packaging Tool.</p>
+                <h3>Syntax:</h3>
+                <p><i>apt-get [options] command</i></p>
+                <p><i>or</i></p>
+                <p><i>apt-get [options] install|remove pkg1 [pkg2 ...]</i></p>
+                <p><i>or</i></p>
+                <p><i>apt-get [options] source pkg1 [pkg2 ...]</i></p>
+                <p><b>Most Used Commands:</b> You need to provide one of the commands below, if -h option is not used.</p>
+                <ul>
+                    <li><b>update</b> : This command is used to synchronize the package index files from their sources again. You need to perform an update before you upgrade or dist-upgrade.</li>
+                    <p><i>apt-get update </i></p>
+                    <li><b>upgrade</b> : This command is used to install the latest versions of the packages currently installed on the user’s system from the sources enumerated in /etc/apt/sources.list. The installed packages which have new packages available are retrieved and installed. You need to perform an update before the upgrade, so that apt-get knows that new versions of packages are available.</li>
+                    <p><i>apt-get upgrade </i></p>
+                    <li><b>dselect-upgrade</b> : This is used alongwith the Debian packaging tool, dselect. It follows the changes made by dselect to the Status field of available packages, and performs any actions necessary to realize that state.</li>
+                    <p><i>apt-get dselect-upgrade </i></p>
+                    <li>dist-upgrade : This command performs the function of upgrade, and also handles changing dependencies with new versions of packages. If necessary, the apt-get command will try to upgrade important packages at the expense of less important ones. It may also remove some packages in this process.</li>
+                    <p><i>apt-get dist-upgrade </i></p>
+                    <li>install : This command is used to install or upgrade packages. It is followed by one or more package names the user wishes to install. All the dependencies of the desired packages will also be retrieved and installed. The user can also select the desired version by following the package name with an ‘equals’ and the desired version number. Also, the user can select a specific distribution by following the package name with a forward slash and the version or the archive name (e.g. ‘stable’, ‘testing’ or ‘unstable’). Both of these version selection methods have the potential to downgrade the packages, so must be used with care.</li>
+                    <p><i>apt-get install [...PACKAGES] </i></p>
+                    <li>remove : This is similar to install, with the difference being that it removes the packages instead of installing. It does not remove any configuration files created by the package.</li>
+                    <p><i>apt-get remove [...PACKAGES]</i></p>
+                    <li>purge : This command removes the packages, and also removes any configuration files related to the packages.</li>
+                    <p><i>apt-get purge [...PACKAGES]</i></p>
+                    <li>check : This command is used to update the package cache and checks for broken dependencies.</li>
+                    <p><i>apt-get check</i></p>
+                    <li>download : This command is used to download the given binary package in the current directory.</li>
+                    <p><i>apt-get download [...PACKAGES]</i></p>
+                    <li>clean : This command is used to clear out the local repository of retrieved package files. It removes everything but not the lock file from /var/cache/apt/archives/partial/ and /var/cache/apt/archives/.</li>
+                    <p><i>apt-get clean</i></p>
+                    <li>autoremove : Sometimes the packages which are automatically installed to satisfy the dependencies of other packages, are no longer needed then autoremove command is used to remove these kind of packages.</li>
+                    <p><i>apt-get autoremove</i></p>
+                </ul>
+                <h3>Options:</h3>
+                <ul>
+                    <li>–no-install-recommends : By passing this option, the user lets apt-get know not to consider recommended packages as a dependency to install.</li>
+                    <p><i>apt-get --no-install-recommends [...COMMAND]</i></p>
+                    <li>–install-suggests : By passing this option, the user lets apt-get know that it should consider suggested packages as dependencies to install.</li>
+                    <p><i>apt-get --install-suggests  [...COMMAND]</i></p>
+                    <li>-d or –download-only : By passing this option, the user specifies that apt-get should only retrieve the packages, and not unpack or install them.</li>
+                    <p><i>apt-get -d [...COMMAND]</i></p>
+                    <li>-f or –fix-broken : By passing this option, the user specifies that apt-get should attempt to correct the system with broken dependencies in place.</li>
+                    <p><i>apt-get -f [...COMMAND]</i></p>
+                    <li>-m or –ignore-missing or –fix-missing : By passing this option, the user specifies that apt-get should ignore the missing packages ( packages that cannot be retrieved or fail the integrity check ) and handle the result.</li>
+                    <p><i>apt-get -m [...COMMAND]</i></p>
+                    <li>–no-download : By passing this command, the user disables downloading for apt-get. It means that it should only use the .debs it has already downloaded.</li>
+                    <p><i>apt-get  [...COMMAND]</i></p>
+                    <li>-q or –quiet : When this option is specified, apt-get produces output which is suitable for logging.</li>
+                    <p><i>apt-get  [...COMMAND]</i></p>
+                    <li>-s or –simulate or –just-print or –dry-run or –recon or –no-act : This option specifies that no action should be taken, and perform a simulation of events that would occur based on the current system, but do not change the system.</li>
+                    <p><i>apt-get -s [...COMMAND]</i></p>
+                    <li>-y or –yes or –assume-yes : During the execution of apt-get command, it may sometimes prompt the user for a yes/no. With this option, it is specified that it should assume ‘yes’ for all prompts, and should run without any interaction.</li>
+                    <p><i>apt-get -y [...COMMAND]</i></p>
+                </ul>
+            </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+                <p>We are passionate about helping people stay safe online and providing up-to-date information about the ever-evolving cyber security landscape. </p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

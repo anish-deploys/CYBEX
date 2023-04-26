@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Stylesheet/linux-intro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Fira+Sans&family=Inter:wght@200&family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans:wght@700;900&family=Open+Sans:wght@300&family=Oxygen&family=Roboto:wght@700&family=Rubik+Iso&family=Sacramento&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper_HTML_home">
+        <main class="wrapper_html_content_home">
+            <section class="wapper-html-home_heading_section">
+                <h1 class="linux">OSI Layer</h1>
+                <div class="HTML_btn_container">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fa-solid fa-angle-left"></i>
+                        Home
+                    </a>
+                    <a href="net_attack.html" class="btn btn-primary">
+                        Next
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </section>    
+        
+
+        <div class="main_content">
+                <h3>Layers of OSI Model</h3>
+                <p>OSI stands for <b>Open Systems Interconnection.</b> It has been developed by ISO – <b>‘International Organization for Standardization‘</b>, in the year 1984. It is a 7 layer architecture with each layer having specific functionality to perform. All these 7 layers work collaboratively to transmit the data from one person to another across the globe.</p>
+                <img src="img/osi-1.png">
+                <h3>1. Physical Layer (Layer 1) :</h3>
+                <p>The lowest layer of the OSI reference model is the physical layer. It is responsible for the actual physical connection between the devices. The physical layer contains information in the form of bits. It is responsible for transmitting individual bits from one node to the next. When receiving data, this layer will get the signal received and convert it into 0s and 1s and send them to the Data Link layer, which will put the frame back together.</p>
+                <img src="img/osi-2.png">
+                <p>The functions of the physical layer are as follows: </p>
+                <p><b>1. synchronization:</b> The physical layer provides the synchronization of the bits by                providing a clock. This clock controls both sender and receiver thus providing synchronization at bit level.</p>
+                <p> <b>2. Bit rate control:</b> The Physical layer also defines the transmission rate i.e. the number of bits sent per second.</p>
+                <p><b>3. Physical topologies:</b>Physical layer specifies the way in which the different, devices/nodes are arranged in a network i.e. bus, star, or mesh topology.</p>
+                <p><b>4. Transmission mode:</b>Physical layer also defines the way in which the data flows between the two connected devices. The various transmission modes possible are Simplex, half-duplex and full-duplex.</p>
+                <h3>2. Data Link Layer (DLL) (Layer 2) :</h3>
+                <p>The data link layer is responsible for the node-to-node delivery of the message. The main function of this layer is to make sure data transfer is error-free from one node to another, over the physical layer. When a packet arrives in a network, it is the responsibility of DLL to transmit it to the Host using its MAC address.</p>
+                <p>Data Link Layer is divided into two sublayers: </p>
+                <p>1. Logical Link Control (LLC)</p>
+                <p>2. Media Access Control (MAC)</p>
+                <p>The packet received from the Network layer is further divided into frames depending on the frame size of NIC(Network Interface Card). DLL also encapsulates Sender and Receiver’s MAC address in the header. </p>
+                <p>The Receiver’s MAC address is obtained by placing an ARP(Address Resolution Protocol) request onto the wire asking “Who has that IP address?” and the destination host will reply with its MAC address.  </p>
+                <img src="img/osi-3.png">
+                <p>The functions of the Data Link layer are :  </p>
+                <p><b>1. Framing:</b> Framing is a function of the data link layer. It provides a way for a sender to transmit a set of bits that are meaningful to the receiver. This can be accomplished by attaching special bit patterns to the beginning and end of the frame.</p>
+                <p><b>2. Physical addressing: </b>After creating frames, the Data link layer adds physical addresses (MAC address) of the sender and/or receiver in the header of each frame.</p>
+                <p><b>3. Error control: </b>Data link layer provides the mechanism of error control in which it detects and retransmits damaged or lost frames.</p>
+                <p><b>4. Flow Control:</b> The data rate must be constant on both sides else the data may get corrupted thus, flow control coordinates the amount of data that can be sent before receiving acknowledgement.</p>
+                <p><b>5. Access control:</b>When a single communication channel is shared by multiple devices, the MAC sub-layer of the data link layer helps to determine which device has control over the channel at a given time.</p>
+                <h3>3. Network Layer (Layer 3) :</h3>
+                <p>The network layer works for the transmission of data from one host to the other located in different networks. It also takes care of packet routing i.e. selection of the shortest path to transmit the packet, from the number of routes available. The sender & receiver’s IP addresses are placed in the header by the network layer. </p>
+                <p>The functions of the Network layer are :  </p>
+                <p><b>1. Routing:</b> The network layer protocols determine which route is suitable from source to destination. This function of the network layer is known as routing.</p>
+                <p><b>2. Logical Addressing:</b> In order to identify each device on internetwork uniquely, the network layer defines an addressing scheme. The sender & receiver’s IP addresses are placed in the header by the network layer. Such an address distinguishes each device uniquely and universally.</p>
+                <img src="img/osi-4.png">
+                <h3>4. Transport Layer (Layer 4) :</h3>
+                <p>The transport layer provides services to the application layer and takes services from the network layer. The data in the transport layer is referred to as Segments. It is responsible for the End to End Delivery of the complete message. The transport layer also provides the acknowledgement of the successful data transmission and re-transmits the data if an error is found.</p>
+                <p><b>At sender’s side:</b>Transport layer receives the formatted data from the upper layers, performs Segmentation, and also implements Flow & Error control to ensure proper data transmission. It also adds Source and Destination port numbers in its header and forwards the segmented data to the Network Layer. </p>
+                <p>Generally, this destination port number is configured, either by default or manually. For example, when a web application makes a request to a web server, it typically uses port number 80, because this is the default port assigned to web applications. Many applications have default ports assigned. </p>
+                <p><b>At receiver’s side:</b>Transport Layer reads the port number from its header and forwards the Data which it has received to the respective application. It also performs sequencing and reassembling of the segmented data. </p>
+                <p>The functions of the transport layer are as follows:</p>
+                <p><b>1. Segmentation and Reassembly: </b>This layer accepts the message from the (session) layer, and breaks the message into smaller units. Each of the segments produced has a header associated with it. The transport layer at the destination station reassembles the message.</p>
+                <p><b>2. Service Point Addressing: </b>In order to deliver the message to the correct process, the transport layer header includes a type of address called service point address or port address. Thus by specifying this address, the transport layer makes sure that the message is delivered to the correct process.</p>
+                <p>The services provided by the transport layer :  </p>
+                <p><b>A. Connection-Oriented Service: </b>It is a three-phase process that includes </p>
+                <p>– Connection Establishment </p>
+                <p>– Data Transfer </p>
+                <p>– Termination / disconnection </p>
+                <p>In this type of transmission, the receiving device sends an acknowledgement, back to the source after a packet or group of packets is received. This type of transmission is reliable and secure.</p>
+                <p><b>B. Connectionless service: </b> It is a one-phase process and includes Data Transfer. In this type of transmission, the receiver does not acknowledge receipt of a packet. This approach allows for much faster communication between devices. Connection-oriented service is more reliable than connectionless Service.</p>
+                <h3>5. Session Layer (Layer 5) :</h3>
+                <p>This layer is responsible for the establishment of connection, maintenance of sessions, authentication, and also ensures security. </p>
+                <p>The functions of the session layer are :  </p>
+                <p><b>1. Session establishment, maintenance, and termination: </b>The layer allows the two processes to establish, use and terminate a connection.</p>
+                <p><b>2. Synchronization:</b>This layer allows a process to add checkpoints which are considered synchronization points into the data. These synchronization points help to identify the error so that the data is re-synchronized properly, and ends of the messages are not cut prematurely and data loss is avoided.</p>
+                <p><b>3. Dialog Controller: </b>The session layer allows two systems to start communication with each other in half-duplex or full-duplex.</p>
+                <h3>Scenario: </h3>
+                <p>Let us consider a scenario where a user wants to send a message through some Messenger application running in his browser. The “Messenger” here acts as the application layer which provides the user with an interface to create the data. This message or so-called Data is compressed, encrypted (if any secure data), and converted into bits (0’s and 1’s) so that it can be transmitted.</p>
+                <img src="img/osi-5.png">
+                <h3>6. Presentation Layer (Layer 6):</h3>
+                <p>The presentation layer is also called the Translation layer. The data from the application layer is extracted here and manipulated as per the required format to transmit over the network. </p>
+                <p>The functions of the presentation layer are :</p>
+                <p><b>1. Translation: </b> For example, ASCII to EBCDIC.</p>
+                <p><b>2. Encryption/ Decryption: </b> Data encryption translates the data into another form or code. The encrypted data is known as the ciphertext and the decrypted data is known as plain text. A key value is used for encrypting as well as decrypting data.</p>
+                <p><b>3. Compression: </b>Reduces the number of bits that need to be transmitted on the network.</p>
+                <h3>7. Application Layer (Layer 7) :</h3>
+                <p>At the very top of the OSI Reference Model stack of layers, we find the Application layer which is implemented by the network applications. These applications produce the data, which has to be transferred over the network. This layer also serves as a window for the application services to access the network and for displaying the received information to the user. </p>
+                <p>Example: Application – Browsers, Skype Messenger, etc. </p>
+                <img src="img/osi-6  .png" alt="">
+                <p>The functions of the Application layer are :  </p>
+                <p>1. Network Virtual Terminal</p>
+                <p>2. FTAM-File transfer access and management</p>
+                <p>3. Mail Services</p>
+                <p>4. Directory Services</p>
+                <p><b>OSI model</b>acts as a reference model and is not implemented on the Internet because of its late invention. The current model being used is the TCP/IP model. </p>
+                <h3>OSI model in a nutshell</h3>
+                <img src="img/osi-7.png" alt="">
+            </div>
+        </main>
+
+    <!-- advertisement -->
+    <aside class="container_advertisement">
+        Advertisement
+    </aside>
+    </div>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo"><h4>CYBEX</h4></a>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="courses_page.html">Courses</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_2">
+                <h4>Registered Office</h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Cybex,</span>
+                <p>Nanded - 431603</p>
+                <p>(MH, India)</p>
+
+                <div>
+                <i class="fa-solid fa-envelope"></i>
+                <span>thecybex00@gmail.com</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                </div>
+            </div>
+            <div class="footer_4">
+                <h4>Contact Us</h4>
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-8625888869</span>
+                    <p>+91-8468995037</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>thecybex00@gmail.com</span>
+                </div>
+
+                <ul class="footer_socials">
+                    <li>
+                        <a href="https://twitter.com/thecybex"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/thecybex_official/"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/the-cybex/?viewAsMember=true"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer_copyright">
+                <small>Copyright-2023</small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
